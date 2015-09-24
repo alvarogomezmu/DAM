@@ -4,7 +4,6 @@ import java.util.*;
 
 public class ejercicio1 
 {
-
     public static void main(String args[]) 
     {
         // Crear 4 equipos de precio normal (nombre,cantidad,precio)
@@ -41,17 +40,13 @@ public class ejercicio1
         pc2.add(equipo3Desc);
         pc2.add(equipo4Desc);
 
-        // Aplicamos descuento
+        // Bucle con el que aplicaremos el descuento
         for (int i = 0; i < pc2.size(); i++) 
         {
             pc1.get(i).descuentoEquipo();
         }
 
-        /*
-         Creamos variables para guardar el precio y la posición en el ArrayList
-         de cada lista, tanto para el precio menor como para el mayor
-         */
-        // Asignamos valores que serán editados dentro de if para que no de error
+        // Declarar variables que se van a usar para comparar y guardar su precio en la posicion y en el ArrayList
         int menorPc1 = 0;
         double precioMenorPc1 = 2000;
         int menorPc2 = 0;
@@ -61,7 +56,7 @@ public class ejercicio1
         int mayorPc2 = 0;
         double precioMayorPc2 = 0;
 
-        // Calculamos que equipo de la primera lista tiene menor y mayor precio
+        // Calcular equipo de la primera lista con menor y mayor precio
         for (int i = 0; i < pc1.size(); i++) 
         {
             if (pc1.get(i).getPrecio() > precioMayorPc1) 
@@ -71,7 +66,7 @@ public class ejercicio1
             }
         }
 
-        // Calculamos que equipo de la primera lista tiene menor y mayor precio
+        // Calcular equipo de la primera lista con menor y mayor precio
         for (int i = 0; i < pc2.size(); i++) 
         {
             if (pc2.get(i).getPrecio() < precioMenorPc2) 
@@ -81,7 +76,7 @@ public class ejercicio1
             }
         }
 
-        // Comparamos los menores precios de cada lista y mostramos el menor
+        // Comparar precios menores de cada lista y mostrar el menor
         if (precioMenorPc1 < precioMenorPc2) 
         {
             System.out.println("Equipo con menor precio: " + pc1.get(menorPc1).getNombre() + " " + pc1.get(menorPc1).getPrecio());
@@ -91,7 +86,7 @@ public class ejercicio1
             System.out.println("Equipo con menor precio: " + pc2.get(menorPc2).getNombre() + " " + pc2.get(menorPc2).getPrecio());
         }
 
-        // Comparamos los mayores precios de cada lista y mostramos el mayor
+        // Comparar precios mayores de cada lista y mostrar el mayor
         if (precioMayorPc1 > precioMayorPc2) 
         {
             System.out.println("Equipo con mayor precio: " + pc1.get(mayorPc1).getNombre() + " " + pc1.get(mayorPc1).getPrecio());
