@@ -3,7 +3,7 @@ package ProcessBuilder;
 import java.io.IOException;
 import java.util.Arrays;;
 
-public class Ej1 {
+public class Ej2 {
 
 	public static void main (String args[]) throws IOException {
 		if (args.length <= 0) { // En argumentos incluir la ejecución de una aplicación
