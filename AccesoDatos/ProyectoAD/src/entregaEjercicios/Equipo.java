@@ -6,16 +6,16 @@ public class Equipo
     Integer cantidad;
     double precio;
     
-    public void nuevoEquipo(String n, Integer c, double p)
+    public void nuevoEquipo(String nom, Integer cant, double prec)
     {
-        nombre=n;
-        cantidad=c;
-        precio=p;
+        nombre=nom;
+        cantidad=cant;
+        precio=prec;
     }
     
     public void descuentoEquipo() 
     {
-        precio = precio * 0.8;
+        precio = precio * 0.5;
     }
     
     public String getNombre()  
