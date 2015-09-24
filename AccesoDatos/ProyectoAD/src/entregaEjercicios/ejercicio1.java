@@ -1,9 +1,8 @@
-package Ejercicios;
+package entregaEjercicios;
 
-import java.io.*;
-import java.util.Collections;
+import java.util.*;
 
-public class Ejercicio1 
+public class ejercicio1 
 {
 
     public static void main(String args[]) 
@@ -28,12 +27,19 @@ public class Ejercicio1
         Equipo equipo4Desc = new Equipo();
         equipo4Desc.nuevoEquipo(equipo4.getNombre(), equipo4.getCantidad(), equipo4.getPrecio());
 
-        // Crear ArrayList para equipos con descuento
+        // Crear ArrayList para equipos sin descuento
         ArrayList<Equipo> pc1 = new ArrayList<Equipo>();
-        pc1.add(equipo1Desc);
-        pc1.add(equipo2Desc);
-        pc1.add(equipo3Desc);
-        pc1.add(equipo4Desc);
+        pc1.add(equipo1);
+        pc1.add(equipo2);
+        pc1.add(equipo3);
+        pc1.add(equipo4);
+
+        // Crear ArrayList para equipos con descuento
+        ArrayList<Equipo> pc2 = new ArrayList<Equipo>();
+        pc2.add(equipo1Desc);
+        pc2.add(equipo2Desc);
+        pc2.add(equipo3Desc);
+        pc2.add(equipo4Desc);
 
         // Aplicamos descuento
         for (int i = 0; i < pc2.size(); i++) 
@@ -41,18 +47,12 @@ public class Ejercicio1
             pc1.get(i).descuentoEquipo();
         }
 
-        // Crear ArrayList para equipos sin descuento
-        ArrayList<Equipo> pc2 = new ArrayList<Equipo>();
-        pc2.add(equipo1);
-        pc2.add(equipo2);
-        pc2.add(equipo3);
-        pc2.add(equipo4);
-
         /*
          Creamos variables para guardar el precio y la posición en el ArrayList
          de cada lista, tanto para el precio menor como para el mayor
          */
         // Asignamos valores que serán editados dentro de if para que no de error
+        int menorPc1 = 0;
         double precioMenorPc1 = 2000;
         int menorPc2 = 0;
         double precioMenorPc2 = 2000;
@@ -70,7 +70,7 @@ public class Ejercicio1
                 mayorPc1 = pc1.indexOf(pc1.get(i));
             }
         }
-        
+
         // Calculamos que equipo de la primera lista tiene menor y mayor precio
         for (int i = 0; i < pc2.size(); i++) 
         {
@@ -80,20 +80,25 @@ public class Ejercicio1
                 menorPc2 = pc2.indexOf(pc2.get(i));
             }
         }
-        
-         // Comparamos los menores precios de cada lista y mostramos el menor
-        if (precioMenorPc1 < precioMenorPc2) {
-            System.out.println("Equipo con menor precio: " + pc1.get(menorPc2).getNombre() + " " + pc1.get(pc1).getPrecio());
-        }else if (precioMenorEqui2 > precioMenorEqui1) {
-            System.out.println("Equipo con menor precio: " + pc2.get(menorPc1).getNombre() + " " + pc2.get(menorEqui2).getPrecio());
+
+        // Comparamos los menores precios de cada lista y mostramos el menor
+        if (precioMenorPc1 < precioMenorPc2) 
+        {
+            System.out.println("Equipo con menor precio: " + pc1.get(menorPc1).getNombre() + " " + pc1.get(menorPc1).getPrecio());
+        } 
+        else if (precioMenorPc1 > precioMenorPc2) 
+        {
+            System.out.println("Equipo con menor precio: " + pc2.get(menorPc2).getNombre() + " " + pc2.get(menorPc2).getPrecio());
         }
-        
+
         // Comparamos los mayores precios de cada lista y mostramos el mayor
-        if (precioMayorPc1 > precioMayorPc2) {
-            System.out.println("Equipo con mayor precio: " + equi1.get(mayorPc1).getNombre() + " " + pc1.get(mayorPc1).getPrecio());
-        }else if (precioMayorPc1 < precioMayorPc2) {
-            System.out.println("Equipo con mayor precio: " + equi2.get(mayorPc2).getNombre() + " " + pc2.get(mayorPc2).getPrecio());
+        if (precioMayorPc1 > precioMayorPc2) 
+        {
+            System.out.println("Equipo con mayor precio: " + pc1.get(mayorPc1).getNombre() + " " + pc1.get(mayorPc1).getPrecio());
+        } 
+        else if (precioMayorPc1 < precioMayorPc2) 
+        {
+            System.out.println("Equipo con mayor precio: " + pc2.get(mayorPc2).getNombre() + " " + pc2.get(mayorPc2).getPrecio());
         }
     }
 }
-
