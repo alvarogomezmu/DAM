@@ -1,5 +1,7 @@
 /*
-    
+    Basándonos en el ejercicio 1, debemos decir si los valores guardados en el fichero son pares o impares.
+    Deberemos mostrar dos mensajes uno para los pares y otro para los impares. Primero los miraremos en el fichero, 
+    luego repetir para mirarlos en el Arraylist.
  */
 package ejerciciostema1;
 
@@ -12,31 +14,26 @@ public class ejercicio2 {
 
     public static void main(String[] args) {
         try {
-            BufferedReader f1 = new BufferedReader(new FileReader("C:\\Users\\Alumnot\\Documents\\numero.txt"));
-            ArrayList<Integer> Arr=new ArrayList<Integer>();
-            String str=null;
-            int num=0;
-            int suma=0;
+            BufferedReader bf = new BufferedReader(new FileReader("C:\\Users\\Alumnot\\Documents\\numero.txt"));
+            ArrayList<Integer> ar = new ArrayList<Integer>();
+            String str = null;
+            int num;
             
-            while (f1.ready()) {
-                str=f1.readLine();
-                num=Integer.parseInt(str);
-                Arr.add(num);
+            while (bf.ready()) {
+                str = bf.readLine();
+                num = Integer.parseInt(str);
+                ar.add(num);
             }
             
-            for(int i=0; i<Arr.size(); i++)
-            {
-                suma =suma+Arr.get(i);
-            }
-            
-            
-            System.out.println("");
-            while(f1.ready())
-            {
-                
+            for (int i = 0; i < ar.size(); i++) {
+                if (ar.get(i) % 2 == 0) {
+                    System.out.println("El numero " + ar.get(i) + " es par");
+                } else {
+                    System.out.println("El numero " + ar.get(i) + " es impar");
+                }
             }
         } catch (IOException e) {
-            System.out.println("Error " + e);
+            System.out.println("Error: " + e);
         }
     }
 }

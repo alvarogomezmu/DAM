@@ -1,5 +1,6 @@
 /*
-    
+    Programa que construya un ArrayList de enteros a partir de una cadena almacenada en el fichero que debemos leer.
+    El fichero lo llamaremos numero.txt Vamos a sumar el numero total de enteros guardados en el ArrayList.
 */
 package ejerciciostema1;
 
@@ -12,14 +13,14 @@ public class ejercicio1 {
 
     public static void main(String[] args) {
         try {
-            BufferedReader f1 = new BufferedReader(new FileReader("C:\\Users\\Alumnot\\Documents\\numero.txt"));
+            BufferedReader bf = new BufferedReader(new FileReader("C:\\Users\\Alumnot\\Documents\\numero.txt"));
             ArrayList<Integer> Arr=new ArrayList<Integer>();
             String str=null;
             int num=0;
             int suma=0;
             
-            while (f1.ready()) {
-                str=f1.readLine();
+            while (bf.ready()) {
+                str=bf.readLine();
                 num=Integer.parseInt(str);
                 Arr.add(num);
             }
