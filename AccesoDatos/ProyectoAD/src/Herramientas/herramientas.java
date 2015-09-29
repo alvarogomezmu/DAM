@@ -7,7 +7,10 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class herramientas {
-
+/**
+ * Metodo que sirve para recorrer una coleccion
+ * @param colec 
+ */
     public static void recorrerColeccion(Collection colec) {
         Iterator it = colec.iterator();
 
@@ -48,7 +51,12 @@ public class herramientas {
 //            System.out.println(it.next());
 //        }
     }
-
+/**
+ * Metodo que sirve para determinar el tamaño de una cadena dentro de un fichero aleatorio
+ * @param txt
+ * @param largo
+ * @return txt
+ */
     public static String convertUTF(String txt, int largo) {
 
         if (txt.length() > largo) {
