@@ -11,4 +11,5 @@ public class aleatorioHijo {
 			System.out.println(randomInt);
 		}
 	}
+
 }

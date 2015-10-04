@@ -1,48 +1,41 @@
-import java.io.BufferedReader; 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream; 
-import java.io.InputStreamReader; 
-import java.io.*; 
-import java.util.Arrays; 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
 
 public class ProcesosAleatorios {
 
-static int naleatorios=6;
+	static int aleatorios = 6;
+	
+	public static void main(String args[]) throws IOException, InterruptedException {
 
-public static void main(String args[])throws IOException,InterruptedException {
+		Process[] p = new Process[aleatorios]; // Array de procesos
+		InputStream is[] = new InputStream[aleatorios];
+		InputStreamReader isr[] = new InputStreamReader[aleatorios];
+		BufferedReader br[] = new BufferedReader[aleatorios];
 
-int i;
+		for (int i = 0; i < aleatorios; i++) {
+			p[i] = new ProcessBuilder("").start();
+			is[i] = p[i].getInputStream();
+			isr[i] = new InputStreamReader(is[i]);
+			br[i] = new BufferedReader(isr[i]);
+		}
+		
+		for (int i = 0; i < aleatorios; i++) {
+			p[i].waitFor();
+		}
 
-Process[] p = new Process[naleatorios]; //Array de procesos
+		String linea;
 
-InputStream is []= new InputStream[naleatorios];
-
-InputStreamReader isr []= new InputStreamReader[naleatorios];
-
-BufferedReader br [] = new BufferedReader[naleatorios];
-
-for(i=0;i<naleatorios;i++) {
-	p[i]= new ProcessBuilder("..\\aleatorio").start();
-	is[i]= p[i].getInputStream();
-	isr[i]= new InputStreamReader(is[i]);
-	br[i] = new BufferedReader(isr[i]); }
-		for(i=0;i<naleatorios;i++) {
-			p[i].waitFor(); }
-
-String line;
-
-for(i=0;i<naleatorios;i++){
-
-System.out.println("Salida del proceso Aleatorio "+ i +":");
-
-while ((line =br[i].readLine())!=null) 
-{
-
-	System.out.println(line); 
-} }
-
-} }
-
-
-
-
+		for (int i = 0; i < aleatorios; i++) {
+			System.out.println("Salida del proceso aleatorio" + i + " ");
+			while ((linea = br[i].readLine()) != null) {
+				System.out.println(linea);
+			}
+		}
+	}
+}

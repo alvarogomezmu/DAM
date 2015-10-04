@@ -1,14 +1,13 @@
 package loteria;
 
 import java.io.IOException;
-import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.BufferedReader;
 
-public class Loteria{ 
+public class Loteria {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        //Declaracion de objetos
         String line;
         Process[] p = new Process[6];
         InputStream[] is = new InputStream[6];
@@ -23,13 +22,13 @@ public class Loteria{
             Thread.sleep(800);
         }
 
-        for (int j = 0; j < 6; j++) {
-            p[j].waitFor();
+        for (int h = 0; h < 6; h++) {
+            p[h].waitFor();
         }
 
-        for (int k = 0; k < 6; k++) {
-            System.out.println("Salida del proceso Aleatorio" + k + ".");
-            while ((line = br[k].readLine()) != null) {
+        for (int w = 0; w < 6; w++) {
+            System.out.println("Salida del proceso Aleatorio" + w + ".");
+            while ((line = br[w].readLine()) != null) {
                 System.out.println(line);
             }
         }
