@@ -4,9 +4,12 @@ package Herramientas;
  * @author Daniel Marcos Lorrio
  * @version 1.0.1 02-10-2015
  */
-
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -177,5 +180,21 @@ public class herramientas {
             }
         }
         return suma;
+    }
+    
+    public static void Serializar(int array[], String ruta) throws IOException {
+
+        ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(ruta));
+        salida.writeObject(array);
+        salida.close();
+    }
+
+    public static void Deserializar(String ruta) throws IOException, ClassNotFoundException {
+        ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(ruta));
+        int obj[] = (int[]) entrada.readObject();
+        for (int i = 0; i < 3; i++) {
+            System.out.println("El valor del objeto es: " + obj[i]);
+        }
+        entrada.close();
     }
 }
