@@ -11,5 +11,4 @@ public class list implements java.io.Serializable {
             herramientas.Serializar(array, "C:\\Users\\alumnot\\Desktop\\fichero.obj");
             herramientas.Deserializar("C:\\Users\\alumnot\\Desktop\\fichero.obj");
         }
-
     }
