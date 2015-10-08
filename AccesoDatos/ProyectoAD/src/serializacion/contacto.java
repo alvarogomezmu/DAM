@@ -12,8 +12,8 @@ public class contacto implements java.io.Serializable
     String telefono; 
         
     public void nuevoContacto(String nombre, String telf){
-        nombre = nom;
-        telf = telefono;
+        nom = nombre;
+        telefono = telf;
     }
     
     public void setnom(String nombre){
@@ -32,6 +32,6 @@ public class contacto implements java.io.Serializable
         return telefono;
     }
     public String toString(){
-        return "nombre"+nom+"telf"+telefono;
+        return "nombre " + nom+" telf "+telefono;
     }
 }

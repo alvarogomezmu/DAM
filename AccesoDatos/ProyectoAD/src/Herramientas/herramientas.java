@@ -6,6 +6,8 @@ package Herramientas;
  */
 import java.io.BufferedReader;
 import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -209,6 +211,19 @@ public class herramientas {
         }
         // Devolver el valor de la variable
         return suma;
+    }
+
+    public static void serializarObject(Object obj, String ruta) throws IOException {
+        ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(ruta));
+        salida.writeObject(obj);
+        salida.close();
+    }
+
+    public static void desserializarObject(String ruta) throws IOException, ClassNotFoundException {
+        ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(ruta));
+        Object obj = (Object) entrada.readObject();
+        System.out.println("El objeto es: " + obj);
+        entrada.close();
     }
 
     //Metodo que sirve para escribir "n" objetos dentro de un fichero
