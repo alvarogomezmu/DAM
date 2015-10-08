@@ -6,14 +6,26 @@
  Mostrar el contenido del Hashmap*/
 package ejerciciodos;
 
+import java.util.HashMap;
+import Herramientas.herramientas;
+import java.io.IOException;
 /**
  *
  * @author Alumnot
  */
 public class main {
-    public static void main(String args[]){
+    public static void main(String args[]) throws IOException{
         libreria libr1 = new libreria();
         libreria libr2 = new libreria();
         libreria libr3 = new libreria();
+        
+        libr1.newLibreria("Don Quijote de la mancha","Miguel de Cergantes", "Amaya, como la abeja", 69696969);
+        libr2.newLibreria("Alek y el wipe", "Alek", "EjemploPor", 1234567);
+        libr3.newLibreria("Chanta Justa Clan", "Ahel", "Glut", 9876543);
+        
+        HashMap <Integer,String> maps = new HashMap <Integer,String>();
+        
+        herramientas.serializarObject(libr1, "C:\\Users\\alumnot\\Desktop\\fichero.obj");
+        
     }
 }
