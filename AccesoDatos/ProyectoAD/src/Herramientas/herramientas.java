@@ -5,7 +5,10 @@ package Herramientas;
  * @version 1.0.1 de Octubre de 2015
  */
 import java.io.BufferedReader;
+import java.io.EOFException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -54,7 +57,7 @@ public class herramientas {
     public static void recorrerMapInt(Map map) {
         // Iteramos el map
         Iterator it = map.keySet().iterator();
-        
+
         // Recorremos el map e imprimimos la clave y el valor
         while (it.hasNext()) {
             Integer clave = (Integer) it.next();
@@ -82,9 +85,8 @@ public class herramientas {
         }
         return txt;
     }
-    
-    // Metodos asociados a Tokens2.java
 
+    // Metodos asociados a Tokens2.java
     /**
      * Metodo para leer fichero mediante BufferedReader
      *
@@ -207,5 +209,26 @@ public class herramientas {
         }
         // Devolver el valor de la variable
         return suma;
+    }
+
+    //Metodo que sirve para escribir "n" objetos dentro de un fichero
+    public static void escribirObjetos(ObjectOutputStream escribir, Object objeto) throws IOException {
+        escribir.writeObject(objeto);
+    }
+
+    //Metodo que sirve para leer "n" objetos dentro de un fichero
+    public static void leerObjetos(ObjectInputStream leer) throws IOException, ClassNotFoundException {
+        try {
+            while (true) {
+                Object c = (Object) leer.readObject();
+            }
+        } catch (EOFException ex) {
+            // tratamiento de Accion (-pintar pantalla -guardar en una coleccion -guardar en un Map -guardar fichero
+            System.out.println("Final de fichero");
+        } finally {
+            if (leer != null) {
+                leer.close();
+            }
+        }
     }
 }
