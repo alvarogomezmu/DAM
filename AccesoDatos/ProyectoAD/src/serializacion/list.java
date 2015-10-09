@@ -18,7 +18,7 @@ public class list implements java.io.Serializable {
 
         herramientas.serializarObject(contacto1, "C:\\Users\\alumnot\\Desktop\\fichero.obj");
         herramientas.desserializarObject("C:\\Users\\alumnot\\Desktop\\fichero.obj");
-    }
+    } 
 
     //Metodo que sirve para leer "n" objetos dentro de un fichero
     public static void leerObjetos(ObjectInputStream leer) throws IOException, ClassNotFoundException {
