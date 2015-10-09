@@ -263,8 +263,7 @@ public class herramientas {
             System.out.println("final del fichero");
             // tratamiento
             // recorrerMap
-            m = (HashMap) ob.readObject();
-            System.out.println(m.toString());
+           System.out.println(m.toString());
         } finally {
             if (ob != null) {
                 ob.close();
