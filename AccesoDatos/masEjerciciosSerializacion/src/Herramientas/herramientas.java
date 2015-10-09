@@ -246,4 +246,8 @@ public class herramientas {
             }
         }
     }
+
+    public static void escribirMap(ObjectOutputStream ob, Map mapa) throws IOException {
+        ob.writeObject(mapa);
+    }
 }
