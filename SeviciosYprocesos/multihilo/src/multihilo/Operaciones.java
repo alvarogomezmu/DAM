@@ -14,16 +14,16 @@ public class Operaciones {
      */
     public static int suma() {
         int suma = 0;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 11; i++) {
             suma += i;
         }
         return suma;
     }
-
+    
     /**
      * Metodo para multiplicar los 10 primeros numeros naturales
      *
-     * @return Resultado de la suma
+     * @return Resultado de la multiplicacion
      */
     public static int multiplicacion() {
         int multiplicacion = 1;
@@ -36,7 +36,7 @@ public class Operaciones {
     /**
      * Metodo para sumar los 10 primeros numeros pares naturales
      *
-     * @return Resultado de la suma
+     * @return Resultado de la suma de pares
      */
     public static int sumaPar() {
         int contador = 0;
@@ -59,7 +59,7 @@ public class Operaciones {
     /**
      * Metodo para sumar los 10 primeros numeros impares naturales
      *
-     * @return Resultado de la suma
+     * @return Resultado de la suma de impares
      */
     public static int sumaImpar() {
         int contador2 = 0;
