@@ -10,5 +10,8 @@ package fichCompuesto;
  * @author Alumnot
  */
 public class proyecto {
-    
+    public static void main(String args[]){
+        empleado jefe_proyecto = new empleado();
+        oObjeto uso_lenguaje = new oObjeto("Java");
+    }
 }
