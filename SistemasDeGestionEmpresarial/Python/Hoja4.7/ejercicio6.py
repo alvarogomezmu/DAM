@@ -10,7 +10,6 @@ Solución:
 
 {'el': 2, 'son': 3, 'gato': 4, 'y': 1, 'amigos': 6, 'pato': 4}
 '''
-
 # Creamos cadena de caracteres de tipo String
 cadena = "el gato y el pato son amigos"
 # Troceamos el string y lo convertimos en lista

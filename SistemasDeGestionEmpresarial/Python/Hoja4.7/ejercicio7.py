@@ -26,7 +26,6 @@ Inicialmente las variables diccionario contendrán al menos 5 palabras cada una.
 Durante la ejecución del programa se deben añadir al menos una entrada de cada tipo.
 Cuando el usuario elija Salir se deben imprimir por pantalla todas las variables diccionario.
 '''
-
 import os
 
 dorsal_moto_nombre = {0:"Paco Bisonte",1:"Carlos Alcazar"}

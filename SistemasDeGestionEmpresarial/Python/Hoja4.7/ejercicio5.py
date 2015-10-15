@@ -14,7 +14,6 @@ nota: esta todo escrito en minúscula para facilitar el trabajo
 
 {'a': 8, 'c': 1, 'e': 4, 'f': 1, 'h': 1, 'i': 2, 'l': 2, 'n': 2, 's': 1, 't': 1, 'v': 1, 'z': 1}
 '''
-
 # Creamos cadena de caracteres de tipo String
 cadena = "el elefante avanza hacia asia"
 # Creamos el diccionario
