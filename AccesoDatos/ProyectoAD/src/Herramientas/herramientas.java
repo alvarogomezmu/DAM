@@ -237,6 +237,7 @@ public class herramientas {
         try {
             while (true) {
                 Object c = (Object) leer.readObject();
+                System.out.println(c);
             }
         } catch (EOFException ex) {
             // tratamiento de Accion (-pintar pantalla -guardar en una coleccion -guardar en un Map -guardar fichero
@@ -263,7 +264,7 @@ public class herramientas {
             System.out.println("final del fichero");
             // tratamiento
             // recorrerMap
-           System.out.println(m.toString());
+            System.out.println(m.toString());
         } finally {
             if (ob != null) {
                 ob.close();
