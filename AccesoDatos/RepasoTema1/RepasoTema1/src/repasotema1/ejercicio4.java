@@ -10,6 +10,7 @@ package repasotema1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 /**
  *
@@ -35,6 +36,14 @@ public class ejercicio4 {
         switch (opcion) {
             case 1:
                 //TODO
+                ArrayList<String> ar = new ArrayList<String>();
+                int parAct;
+                for (int i=0; i<=100; i++){
+                    while(!parAct %2 == 0){
+                        parAct ++;
+                        
+                    }
+                }
                 break;
             case 2:
                 break;
