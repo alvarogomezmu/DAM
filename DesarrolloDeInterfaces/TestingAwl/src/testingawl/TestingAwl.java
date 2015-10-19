@@ -37,6 +37,12 @@ public class TestingAwl extends Frame implements ActionListener {
         add(buttonCancelar);
         add(buttonSalir);
         addWindowListener(new CerrarVentana());
+        
+        // Aniadimos botones al Layout
+        add(buttonAceptar);
+        add(buttonCancelar);
+        add(buttonSalir);
+        
     }
 
     /**
