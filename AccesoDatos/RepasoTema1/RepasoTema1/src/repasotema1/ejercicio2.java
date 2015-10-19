@@ -6,33 +6,43 @@
 package repasotema1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 /**
  *
  * @author AlvaroGomez
+ * @version 19-10-2015
  */
 public class ejercicio2 {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         try {
-            BufferedReader fichero = new BufferedReader(new FileReader("C:\\Users\\Alumnot\\Desktop\\porejemplo.txt"));
-            char charac[] = new char[288];
-            int count;
+            BufferedWriter bw = new BufferedWriter(new FileWriter("hola.txt"));
+            BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader br = new BufferedReader(new FileReader("hola.txt"));
 
-            while ((count = fichero.read(charac)) != -1) {
-                for (int i = 0; i < count; i++) {
-                    if (charac[i] != ' ') {
-                        System.out.print(charac[i]);
-                    }
+            System.out.print("Introduce la frase: ");
+            String cadena = sc.readLine();
+
+            bw.write(cadena);
+            bw.close();
+
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                StringTokenizer tokenizer = new StringTokenizer(linea, " ");
+                while (tokenizer.hasMoreTokens()) {
+                    String cad = tokenizer.nextToken();
+                    System.out.print(cad);
                 }
             }
-        } catch (FileNotFoundException f) {
-            System.out.println("Archivo no encontrado: " + f);
         } catch (IOException e) {
-            System.out.println("Error: " + e);
+            System.out.println("Excepcion io");
         }
     }
 }
