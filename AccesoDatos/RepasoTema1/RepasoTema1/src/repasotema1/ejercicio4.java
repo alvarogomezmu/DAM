@@ -20,7 +20,7 @@ public class ejercicio4 {
 
     public static void main(String args[]) {
 
-        System.out.print("1) Volcado de ArrayList\n2) Mostrar el numero de la posicion 3\n3) Salir\nTu opcion: ");
+        System.out.print("1) Volcado de un ArrayList con los 100 primeros numeros pares a un fichero ed texto\n2) Mostrar el numero que se encuentra en la posicion 3 del fichero\n3) Salir del programa\nTu opcion: ");
 
         BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 
