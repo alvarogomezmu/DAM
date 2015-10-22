@@ -6,10 +6,28 @@ Cuando el programa vuelva a arrancar debe poder recuperar los datos introducidos
 
 package ejerciciouno;
 
+import java.util.HashMap;
+import Herramientas.herramientas;
+import ejerciciodos.libreria;
+import java.io.IOException;
+import ejerciciouno.Metodos;
+
 /**
  *
  * @author Alumnot
  */
 public class ejercicioUno {
-    
+    public static void main(String args[])throws IOException{
+        Persona pers1 = new Persona();
+        Persona pers2 = new Persona();
+        Persona pers3 = new Persona();
+        
+        //Metodos.setPersonaDatos(pers1);
+        
+        pers1.newLibreria("Pedro","Piqueras", "02387657p", 30);
+        pers2.newLibreria("Daniel","Gonzalez", "02882357p", 25);
+        pers3.newLibreria("Jorge","Palomo", "08747117p", 19);
+        
+        HashMap <Integer,String> maps = new HashMap <Integer,String>();
+    }    
 }

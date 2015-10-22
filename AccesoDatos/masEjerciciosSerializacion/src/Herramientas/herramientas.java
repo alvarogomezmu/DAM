@@ -13,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -243,6 +244,29 @@ public class herramientas {
         } finally {
             if (leer != null) {
                 leer.close();
+            }
+        }
+    }
+
+    public static void escribirMap(ObjectOutputStream ob, Map mapa) throws IOException {
+        ob.writeObject(mapa);
+    }
+
+    public static void leerMap(ObjectInputStream ob) throws IOException, ClassNotFoundException {
+        Map m = null;
+        try {
+
+            while (true) {
+                m = (HashMap) ob.readObject();
+            }
+        } catch (EOFException e) {
+            System.out.println("final del fichero");
+            // tratamiento
+            // recorrerMap
+           System.out.println(m.toString());
+        } finally {
+            if (ob != null) {
+                ob.close();
             }
         }
     }
