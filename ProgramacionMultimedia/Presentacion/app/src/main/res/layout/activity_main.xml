@@ -13,7 +13,7 @@
             android:id="@+id/campoPantalla"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:text="Calculadora"
+            android:text="Calculeitor"
             android:background="@color/darkblue"
             android:padding="5dp"
             android:textSize="18sp"
