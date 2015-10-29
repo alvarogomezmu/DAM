@@ -1,9 +1,5 @@
 package ProyectoAD;
 
-/**
- * @author Alvaro Gomez Muñoz
- * @version 1.0.1 de Octubre de 2015
- */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
@@ -29,7 +25,7 @@ public class ficheroAleatorio {
             System.out.println("hola");
         }
 
-        // Leer fichero raf
+        // Leer
         try {
             RandomAccessFile x = new RandomAccessFile("C:\\Users\\Alumnot\\Documents\\raf.txt", "r");
             for (int i = 0; i < 2; i++) {

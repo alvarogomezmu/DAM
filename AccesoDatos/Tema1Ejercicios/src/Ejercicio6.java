@@ -5,12 +5,10 @@ con los nuevos datos del arraylist contenido.
 Repetir dicho ejercicio ,sabiendo que debemos usar una colección que no acepte repetidos.
  */
 package Ficheros;
-
 import Herramientas.*;
 import java.util.*;
 import java.io.*;
-
-public class Ejercicio6 {
+public class fichHoja6 {
     
     public static void main(String[] args) {
         

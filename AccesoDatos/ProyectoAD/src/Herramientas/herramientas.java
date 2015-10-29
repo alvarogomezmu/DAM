@@ -214,25 +214,77 @@ public class herramientas {
         return suma;
     }
 
+    /**
+     *
+     * @param array
+     * @param ruta
+     * @throws IOException
+     */
+    public static void serializarArray(int array[], String ruta) throws IOException {
+        ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(ruta));
+        salida.writeObject(array);
+        salida.close();
+    }
+
+    /**
+     *
+     * @param ruta
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static void deserializarArray(String ruta) throws IOException, ClassNotFoundException {
+        ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(ruta));
+        int[] obj = (int[]) entrada.readObject();
+        for (int i = 0; i < obj.length; i++) {
+            System.out.println("El objeto es: " + obj[i]);
+        }
+        entrada.close();
+    }
+
+    /**
+     *
+     * @param obj
+     * @param ruta
+     * @throws IOException
+     */
     public static void serializarObject(Object obj, String ruta) throws IOException {
         ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(ruta));
         salida.writeObject(obj);
         salida.close();
     }
 
-    public static void desserializarObject(String ruta) throws IOException, ClassNotFoundException {
+    /**
+     *
+     * @param ruta
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static void deserializarObject(String ruta) throws IOException, ClassNotFoundException {
         ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(ruta));
         Object obj = (Object) entrada.readObject();
         System.out.println("El objeto es: " + obj);
         entrada.close();
     }
 
-    //Metodo que sirve para escribir "n" objetos dentro de un fichero
+    /**
+     * Metodo para escribir "n" objetos entro de un fichero
+     *
+     * @param escribir
+     * @param objeto
+     * @throws IOException
+     */
     public static void escribirObjetos(ObjectOutputStream escribir, Object objeto) throws IOException {
         escribir.writeObject(objeto);
     }
 
-    //Metodo que sirve para leer "n" objetos dentro de un fichero
+    /**
+     * Metodo para leer "n" objetos dentro de un fichero
+     *
+     * @param leer
+     * @param objeto
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static void leerObjetos(ObjectInputStream leer) throws IOException, ClassNotFoundException {
         try {
             while (true) {
@@ -256,15 +308,18 @@ public class herramientas {
     public static void leerMap(ObjectInputStream ob) throws IOException, ClassNotFoundException {
         Map m = null;
         try {
-
             while (true) {
                 m = (HashMap) ob.readObject();
             }
         } catch (EOFException e) {
-            System.out.println("final del fichero");
-            // tratamiento
-            // recorrerMap
-            System.out.println(m.toString());
+            System.out.println("Final del fichero");
+
+            Iterator it = m.keySet().iterator();
+            while (it.hasNext()) {
+                Integer clave = (Integer) it.next();
+                Object valor = (Object) m.get(clave);
+                System.out.println(m.toString());
+            }
         } finally {
             if (ob != null) {
                 ob.close();
@@ -272,4 +327,3 @@ public class herramientas {
         }
     }
 }
-

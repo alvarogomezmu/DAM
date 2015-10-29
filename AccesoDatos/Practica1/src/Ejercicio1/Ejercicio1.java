@@ -5,7 +5,6 @@ import java.util.Collections;
 
 public class Ejercicio1 {
 
-
     public static void main(String args[]) {
 
         // Creamos 6 equipos con precio normal

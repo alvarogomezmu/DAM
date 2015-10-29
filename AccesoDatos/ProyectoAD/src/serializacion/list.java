@@ -1,38 +1,34 @@
 package serializacion;
 
 import Herramientas.herramientas;
-import java.io.EOFException;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 
+/**
+ * 
+ * @author Alumnot
+ */
 public class list implements java.io.Serializable {
 
+    /**
+     * 
+     * @param args
+     * @throws IOException
+     * @throws ClassNotFoundException 
+     */
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        // Creamos tres contactos
+        contacto contacto1 = new contacto("Pepa", 123456789);
+        contacto contacto2 = new contacto("Pepe", 987654321);
+        contacto contacto3 = new contacto("Pepo", 456321789);
 
-        contacto contacto1 = new contacto();
-        contacto1.nuevoContacto("Berto", "45589089");
-        contacto contacto2 = new contacto();
-        contacto2.nuevoContacto("Pepa", "609088654");
-        contacto contacto3 = new contacto();
-        contacto3.nuevoContacto("Antonio", "648859301");
+        // Serializamos y deserializamos los objetos
+        herramientas.serializarObject(contacto1, "C:\\Users\\AlumnoT\\Desktop\\fichero.obj");
+        herramientas.deserializarObject("C:\\Users\\AlumnoT\\Desktop\\fichero.obj");
 
-        herramientas.serializarObject(contacto1, "C:\\Users\\alumnot\\Desktop\\fichero.obj");
-        herramientas.desserializarObject("C:\\Users\\alumnot\\Desktop\\fichero.obj");
-    } 
+        herramientas.serializarObject(contacto2, "C:\\Users\\AlumnoT\\Desktop\\fichero.obj");
+        herramientas.deserializarObject("C:\\Users\\AlumnoT\\Desktop\\fichero.obj");
 
-    //Metodo que sirve para leer "n" objetos dentro de un fichero
-    public static void leerObjetos(ObjectInputStream leer) throws IOException, ClassNotFoundException {
-        try {
-            while (true) {
-                Object c = (Object) leer.readObject();
-            }
-        } catch (EOFException ex) {
-            // tratamiento de Accion (-pintar pantalla -guardar en una coleccion -guardar en un Map -guardar fichero
-            System.out.println("Final de fichero");
-        } finally {
-            if (leer != null) {
-                leer.close();
-            }
-        }
+        herramientas.serializarObject(contacto3, "C:\\Users\\AlumnoT\\Desktop\\fichero.obj");
+        herramientas.deserializarObject("C:\\Users\\AlumnoT\\Desktop\\fichero.obj");
     }
 }

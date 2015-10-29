@@ -2,7 +2,7 @@ package Tema1;
 
 import java.io.*;
 import java.util.*;
-import Herramientas.herramientas;
+import Herramientas.Herramientas;
 
 public class Ejercicio3 
 {

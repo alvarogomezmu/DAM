@@ -1,37 +1,32 @@
 package serializacion;
 
-import Herramientas.herramientas;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+public class contacto implements java.io.Serializable {
 
-public class contacto implements java.io.Serializable 
-{
     String nom;
-    String telefono; 
-        
-    public void nuevoContacto(String nombre, String telf){
+    int telefono;
+
+    public contacto(String nombre, int telf) {
         nom = nombre;
         telefono = telf;
     }
-    
-    public void setnom(String nombre){
+
+    public void setnom(String nombre) {
         nombre = nom;
     }
-    
-    public void settelf(String telf){
+
+    public void settelf(int telf) {
         telf = telefono;
     }
-    
-    public String getnom(String nombre){
+
+    public String getnom(String nombre) {
         return nom;
     }
-    
-    public String gettelf(String telf){
+
+    public int gettelf(int telf) {
         return telefono;
     }
-    public String toString(){
-        return "nombre " + nom+" telf "+telefono;
+
+    public String toString() {
+        return "nombre " + nom + ", telefono " + telefono;
     }
 }
