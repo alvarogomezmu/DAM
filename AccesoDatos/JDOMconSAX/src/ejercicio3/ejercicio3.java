@@ -5,6 +5,8 @@
  */
 package ejercicio3;
 
+import org.jdom2.Element;
+
 /**
  *
  * @author Alumnot
