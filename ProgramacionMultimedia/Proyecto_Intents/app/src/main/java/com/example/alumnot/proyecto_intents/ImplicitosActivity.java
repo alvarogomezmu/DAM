@@ -50,6 +50,14 @@ public class ImplicitosActivity extends Activity{
 
 
 
+
+
+
+
+
+
+
+
 	public void lanzarActivity(View v){
 		
 		Intent i;
