@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package conjunto;
 
 import java.io.IOException;
@@ -44,7 +39,7 @@ public class main {
 
         // Bucle para crear los procesos (7), cada uno guardará en un documento el contenido de la carpeta de cada usuario
         try {
-            BufferedReader leer = new BufferedReader(new FileReader("C:\\Users\\Alumnot\\Documents\\Usuarios\\usuarios.txt"));
+            BufferedReader leer = new BufferedReader(new FileReader("C:\\Users\\Álvaro\\Documents\\Usuarios\\usuarios.txt"));
             String user = null;
             int count = 0;
 
