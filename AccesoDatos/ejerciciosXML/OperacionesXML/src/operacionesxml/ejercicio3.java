@@ -30,20 +30,21 @@ public class ejercicio3 {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         Element root = doc.getRootElement();
-        
+
         List<Element> autor = root.getChildren("autor");
-        
+
         Iterator it = autor.iterator();
-        
+
         // 1. Añadir un atributo a autor de tipo cat1 que sea siglo=XXI
-        while(it.hasNext()){
+        while (it.hasNext()) {
             Element t = (Element) it.next();
-            
+            if ("autor tipo" == "cat1") {
+
+            }
             t.addContent(new Element("XXI"));
         }
-        
-        
+
     }
 }
