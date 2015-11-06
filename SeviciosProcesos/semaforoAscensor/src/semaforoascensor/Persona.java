@@ -10,5 +10,13 @@ package semaforoascensor;
  * @author AlumnoT
  */
 public class Persona {
+
+    void setPlantaInicio(int pInicio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setPlantaFin(int pFin) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
