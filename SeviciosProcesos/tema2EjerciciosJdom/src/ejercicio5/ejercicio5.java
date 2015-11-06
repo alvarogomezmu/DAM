@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Ejercicio5.Mostrar el archivo anterior por pantalla LECTURA RÁPIDA Y PASO A PASO
 package ejercicio5;
 
 /**
@@ -10,5 +6,7 @@ package ejercicio5;
  * @author AlumnoT
  */
 public class ejercicio5 {
-    
+    public static void main(String args[]){
+        
+    }
 }
