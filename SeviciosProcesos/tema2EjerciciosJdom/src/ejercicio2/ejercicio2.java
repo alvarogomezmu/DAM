@@ -51,7 +51,5 @@ public class ejercicio2 {
         } catch (Exception e) {
             System.out.println("Error");
         }
-
     }
-
 }
