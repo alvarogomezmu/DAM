@@ -14,6 +14,8 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.io.Serializable;
+
 
 public class MainActivity extends Activity{
     private ArrayList<Producto> listaProductos = new ArrayList<Producto>();
