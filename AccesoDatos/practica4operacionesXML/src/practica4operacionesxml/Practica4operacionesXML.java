@@ -3,48 +3,47 @@ package practica4operacionesxml;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
-public class Practica4operacionesXML {
-
-    public static void main(String[] args) {
-
-        // Declaramos el element root
+public class Practica4operacionesXML 
+{
+    public static void main(String[] args) 
+    {
+        // Declaracion del element root
         Element root = new Element("tebeos");
-
-        // Creamos los hijos de root y se los anadimos
+        
+        // Creacion de los hijos de root y se los agregamos
         Element personajes = new Element("personajes");
         Element autores = new Element("autores");
 
         root.addContent(personajes);
         root.addContent(autores);
 
-        // Creamos y anadimos los hijos de personajes
+        // Crear y agregar los hijos de personajes
         personajes.addContent(new Element("personaje").setAttribute("id", "P001").setAttribute("especie", "humano").setText("Asterix"));
         personajes.addContent(new Element("personaje").setAttribute("id", "P002").setAttribute("especie", "animal").setText("Idefix"));
         personajes.addContent(new Element("personaje").setAttribute("id", "P003").setAttribute("especie", "humano").setText("Lucky Luke"));
         personajes.addContent(new Element("personaje").setAttribute("id", "P004").setAttribute("especie", "animal").setText("Spiderman"));
 
-        // Creamos y anadimos los hijos de autores
+        // Crear y agregar los hijos de autores
         Element dibujantes = new Element("dibujantes");
         Element guionistas = new Element("guionistas");
 
         autores.addContent(dibujantes);
         autores.addContent(guionistas);
 
-        // Creamos y anadimos los hijos de dibujantes
+        // Crear y agregar los hijos de dibujantes
         Element dibujante1 = new Element("dibujante").setAttribute("id", "D001");
         Element dibujante2 = new Element("dibujante").setAttribute("id", "D002");
 
         dibujantes.addContent(dibujante1);
         dibujantes.addContent(dibujante2);
 
-        // Creamos y anadimos los hijos de dibujante1 y dibujante2
+        // Crear y agregar los hijos de dibujante1 y dibujante2
         dibujante1.addContent(new Element("nombre").setText("Albert Uderzo"));
         dibujante1.addContent(new Element("nacimientoFecha").setText("1927"));
         dibujante1.addContent(new Element("nacimientoPais").setText("Francia"));
@@ -55,33 +54,37 @@ public class Practica4operacionesXML {
         dibujante2.addContent(new Element("nacimientoPais").setText("Belgica"));
         dibujante2.addContent(new Element("fallecimientoFecha").setText("2001"));
 
-        // Creamos y anadimos el hijo de guionistas
+        // Crear y agregar el hijo de guionistas
         Element guionista1 = new Element("guionista").setAttribute("id", "G001");
 
         guionistas.addContent(guionista1);
 
-        // Creamos y anadimos los hijos de guionista1
+        // Crear y agregar los hijos de guionista1
         guionista1.addContent(new Element("nombre").setText("Rene Goscinny"));
         guionista1.addContent(new Element("nacimientoFecha").setText("1926"));
         guionista1.addContent(new Element("nacimientoPais").setText("Francia"));
         guionista1.addContent(new Element("fallecimientoFecha").setText("1977"));
 
-        // Creamos el documento y lo mostramos por volcado rapido
+        // Creacion del documento y mostrar por volcado rapido
         Document doc = new Document(root);
-        try {
+        try 
+        {
             Herramientas.escribirXML(doc);
-        } catch (IOException ex) {
+        } catch (IOException ex) 
+        {
             ex.printStackTrace();
         }
 
-        // Mostramos el documento elemento por elemento
+        // Mostrar
         System.out.println(root.getName());
+        System.out.println();
         System.out.println(personajes.getName());
 
         List<Element> listaPersonajes = personajes.getChildren("personaje");
 
         Iterator iPersonajes = listaPersonajes.iterator();
-        while (iPersonajes.hasNext()) {
+        while (iPersonajes.hasNext()) 
+        {
             Element p = (Element) iPersonajes.next();
             System.out.println(p.getName()
                     + " id: " + p.getAttributeValue("id")
@@ -92,15 +95,15 @@ public class Practica4operacionesXML {
         System.out.println(autores.getName());
         System.out.println(dibujantes.getName());
 
-        System.out.println(dibujante1.getName()
-                + " id: " + dibujante1.getAttributeValue("id"));
+        System.out.println(dibujante1.getName() + " id: " + dibujante1.getAttributeValue("id"));
 
-        // Cogemos los hijos de dibujante1
+        // Guardar hijos de dibujante1
         List<Element> listaDibujante1 = dibujante1.getChildren();
 
         Iterator iDibujante1 = listaDibujante1.iterator();
 
-        while (iDibujante1.hasNext()) {
+        while (iDibujante1.hasNext()) 
+        {
             Element n = (Element) iDibujante1.next();
             Element nf = (Element) iDibujante1.next();
             Element np = (Element) iDibujante1.next();
@@ -110,15 +113,15 @@ public class Practica4operacionesXML {
             System.out.println(np.getName() + " " + np.getText());
         }
 
-        System.out.println(dibujante2.getName()
-                + " id: " + dibujante2.getAttributeValue("id"));
+        System.out.println(dibujante2.getName() + " id: " + dibujante2.getAttributeValue("id"));
 
-        // Cogemos los hijos de dibujante2
+        // Guardar hijos de dibujante2
         List<Element> listaDibujante2 = dibujante2.getChildren();
 
         Iterator iDibujante2 = listaDibujante2.iterator();
 
-        while (iDibujante2.hasNext()) {
+        while (iDibujante2.hasNext()) 
+        {
             Element n = (Element) iDibujante2.next();
             Element a = (Element) iDibujante2.next();
             Element nf = (Element) iDibujante2.next();
@@ -134,15 +137,15 @@ public class Practica4operacionesXML {
 
         System.out.println(guionistas.getName());
 
-        System.out.println(guionista1.getName()
-                + " id: " + guionista1.getAttributeValue("id"));
+        System.out.println(guionista1.getName() + " id: " + guionista1.getAttributeValue("id"));
 
-        // Cogemos los hijos de guionista1
+        // Guardar hijos de guionista1
         List<Element> listaGuionista1 = guionista1.getChildren();
 
         Iterator iGuionista1 = listaGuionista1.iterator();
 
-        while (iDibujante2.hasNext()) {
+        while (iDibujante2.hasNext()) 
+        {
             Element n = (Element) iGuionista1.next();
             Element a = (Element) iGuionista1.next();
             Element nf = (Element) iGuionista1.next();
@@ -154,29 +157,32 @@ public class Practica4operacionesXML {
             System.out.println(np.getName() + " " + np.getText());
             System.out.println(ff.getName() + " " + ff.getText());
         }
-
-        //
-        // Ejercicio1
-        //
-        // Borramos la fecha de fallecimiento del guionista con id G001
+        /*
+            Ejercicio1. Eliminar la etiqueta de la fecha de su fallecimiento, para el guionista G001. 
+        */
         System.out.println("\nEjercicio1\n");
+        
+        System.out.println("Vamos a proceder a borrar el id del guionista y a comprobar su estado del registro:");
 
-        // Cogemos los hijos de guionistas
+        // Guardar hijos de guionistas
         List<Element> listaGuionistas = guionistas.getChildren();
-        // Los iteramos
+        // Iterar hijos de guionistas
         Iterator i = listaGuionistas.iterator();
 
-        while (i.hasNext()) {
+        while (i.hasNext()) 
+        {
             Element g = (Element) i.next();
 
-            if (g.getAttributeValue("id").equals("G001")) {
+            if (g.getAttributeValue("id").equals("G001")) 
+            {
                 g.removeChild("fallecimientoFecha");
 
-                // Mostramos el resultado
+                // Mostrar
                 List<Element> listaHijosGuionista1 = g.getChildren();
                 Iterator ite = listaHijosGuionista1.iterator();
 
-                while (ite.hasNext()) {
+                while (ite.hasNext()) 
+                {
                     Element h = (Element) ite.next();
                     System.out.println(h.getName() + " " + h.getText());
                 }
@@ -184,37 +190,40 @@ public class Practica4operacionesXML {
             }
         }
 
-        //
-        // Ejercicio2
-        //
-        // Anadimos a autores el atributo famosos con el valor si
+        /*
+            Ejercicio2. Añadir a la etiqueta autores un atributo llamado famosos que tenga el Valor SI. 
+        */
         System.out.println("\nEjercicio2\n");
-
+        
+        System.out.println("Vamos a agregar un atributo a autores:");
+        
         autores.setAttribute("famosos", "si");
 
-        // Mostramos el resultado
+        // Mostrar
         System.out.println(autores.getName() + " famosos = " + autores.getAttributeValue("famosos"));
 
-        //
-        // Ejercicio3
-        //
-        // Modificamos la fecha de nacimiento del dibujante nacido en Belgica
+        /*
+            Ejercicio3. Modificamos la fecha de nacimiento del dibujante nacido en Belgica.
+        */
         System.out.println("\nEjercicio3\n");
 
-        // Creamos una lista con los hijos de dibujantes
+        // Crear lista con hijos de dibujantes
         List<Element> listaDibujantes = dibujantes.getChildren("dibujante");
-        // La iteramos
+        // Iterar lista con hijos de dibujantes
         Iterator i2 = listaDibujantes.iterator();
 
-        while (i2.hasNext()) {
+        while (i2.hasNext()) 
+        {
             Element d = (Element) i2.next();
 
-            if (d.getChild("nacimientoPais").getText().equals("Belgica")) {
+            if (d.getChild("nacimientoPais").getText().equals("Belgica")) 
+            {
                 d.getChild("nacimientoFecha").setText("1995");
 
-                // Mostramos el resultado
-                System.out.println(d.getChild("nacimientoFecha").getName() + " "
-                        + d.getChild("nacimientoFecha").getText());
+                // Mostrar
+                System.out.println("Vamos a modificar la fecha de nacimiento del dibujante belga.");
+                System.out.println("De nombre: Maurice Bevere.");
+                System.out.println(d.getChild("nacimientoFecha").getName() + " " + d.getChild("nacimientoFecha").getText());
             }
         }
     }
