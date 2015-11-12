@@ -14,11 +14,12 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.io.Serializable;
 
-
+/**
+ * Created by AlumnoT on 05/11/2015.
+ */
 public class MainActivity extends Activity{
-    private ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+    private ArrayList<Producto> listaProductos= new ArrayList<Producto>();
     private ArrayList<String> listaTitulos = new ArrayList<String>();
 
     @Override
@@ -29,7 +30,8 @@ public class MainActivity extends Activity{
         try{
             parsearXML();
             montarListView();
-        }catch (XmlPullParserException e){
+        }
+        catch (XmlPullParserException e){
             e.printStackTrace();
         }
         catch (IOException e){
@@ -38,17 +40,18 @@ public class MainActivity extends Activity{
     }
 
     private void parsearXML() throws XmlPullParserException , IOException{
-        XmlPullParser parser = getResources().getXml(R.xml.productos);
-        int evenType = -1;
 
-        while(evenType != XmlResourceParser.END_DOCUMENT){
-            evenType = parser.next();
-            if(evenType ==XmlResourceParser.START_TAG){
+        XmlPullParser parser = getResources().getXml(R.xml.productos);
+        int eventType = -1;
+
+        while (eventType != XmlResourceParser.END_DOCUMENT){
+            eventType = parser.next();
+            if(eventType == XmlResourceParser.START_TAG){
                 String currentTagName = parser.getName();
                 if(currentTagName.equals("producto")){
-                    String nombreValue = parser.getAttributeValue(null, "nombre");
-                    String precioValue = parser.getAttributeValue(null, "precio");
-                    String descripcionValue = parser.getAttributeValue(null, "descripcion");
+                    String nombreValue = parser.getAttributeValue(null,"nombre");
+                    String precioValue = parser.getAttributeValue(null,"precio");
+                    String descripcionValue = parser.getAttributeValue(null,"descripcion");
 
                     Producto productoActual = new Producto(nombreValue, precioValue, descripcionValue);
 
@@ -76,13 +79,3 @@ public class MainActivity extends Activity{
         });
     }
 }
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,8 @@
-<?xml version="1.0" encondig="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
     <productos>
-    <producto nombre="Condenzador de fluzo" precio="3000" description="Acompañar de Mr Fusion"></producto>
-    <producto nombre="Hoverboard" precio="300" descrption="sin turborizar"></producto>
-    <producto nombre="Nike Air 3000" precio="350" descrpcion="Con los nuevos rubocordones"></producto>
-</productos>
+        <producto nombre="Condenzador de fluzo" precio="3000€" description="Acompañar de Mr Fusion">
+            <subproducto nombre="cosas"></subproducto>
+        </producto>
+        <producto nombre="Hoverboard" precio="300€" description="Sin turborizar"></producto>
+        <producto nombre="Nike Air 3000" precio="350€" description="Con los nuevos robocordones!"></producto>
+    </productos>
