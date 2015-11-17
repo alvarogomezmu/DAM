@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/fondo">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <!-- -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/verWeb"
+            android:onClick="lanzarActivity"
+            android:text="Navegar sitio web"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/verContactos"
+            android:onClick="lanzarActivity"
+            android:text="Ver contactos"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/llamar"
+            android:onClick="lanzarActivity"
+            android:text="LLamada de telefono"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/google"
+            android:onClick="lanzarActivity"
+            android:text="Realiza busqueda en Google"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mail"
+            android:onClick="lanzarActivity"
+            android:text="Enviar correo electrónico"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/camara"
+            android:onClick="lanzarActivity"
+            android:text="Activar cámara de fotos"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/galeria"
+            android:onClick="lanzarActivity"
+            android:text="Activar galería de fotos"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mapas"
+            android:onClick="lanzarActivity"
+            android:text="Ver ubicación en Maps"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/contenedorImagen"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+</ScrollView>
