@@ -1,52 +1,79 @@
 package com.example.alumnot.xml_interno_lista;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.XmlResourceParser;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+/**
+ * Created by AlumnoT on 05/11/2015.
+ */
+public class MainActivity extends Activity {
+    private ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+    private ArrayList<String> listaTitulos = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        try {
+            parsearXML();
+            montarListView();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void parsearXML() throws XmlPullParserException, IOException {
+
+        XmlPullParser parser = getResources().getXml(R.xml.productos);
+        int eventType = -1;
+
+        while (eventType != XmlResourceParser.END_DOCUMENT) {
+            eventType = parser.next();
+            if (eventType == XmlResourceParser.START_TAG) {
+                String currentTagName = parser.getName();
+                if (currentTagName.equals("producto")) {
+                    String nombreValue = parser.getAttributeValue(null, "nombre");
+                    String precioValue = parser.getAttributeValue(null, "precio");
+                    String descripcionValue = parser.getAttributeValue(null, "descripcion");
+
+                    Producto productoActual = new Producto(nombreValue, precioValue, descripcionValue);
+
+                    listaProductos.add(productoActual);
+                    listaTitulos.add(nombreValue);
+                }
+            }
+        }
+    }
+
+    private void montarListView() {
+        ListView listView = (ListView) findViewById(R.id.lista);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item, listaTitulos);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(MainActivity.this, DetalleActivity.class);
+
+                i.putExtra("objetoProducto", listaProductos.get(position));
+                startActivity(i);
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

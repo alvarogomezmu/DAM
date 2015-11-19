@@ -15,5 +15,9 @@
         android:id="@+id/campo_nombre"
         android:text="@string/app_name"
          />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/urgot"/>
 
 </RelativeLayout>

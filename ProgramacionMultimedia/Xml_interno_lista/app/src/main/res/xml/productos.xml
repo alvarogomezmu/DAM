@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <productos>
-        <producto nombre="Condenzador de fluzo" precio="3000€" description="Acompañar de Mr Fusion">
-            <subproducto nombre="cosas"></subproducto>
-        </producto>
-        <producto nombre="Hoverboard" precio="300€" description="Sin turborizar"></producto>
-        <producto nombre="Nike Air 3000" precio="350€" description="Con los nuevos robocordones!"></producto>
+        <producto nombre="Zac" rol="Tanque" description=""></producto>
+        <producto nombre="Elise" rol="Mago" description="BLUE"></producto>
+        <producto nombre="Maestro yi" rol="Asesino" description=""></producto>
+        <producto nombre="Urgot Nigga" rol="Tirador" description=""></producto>
+        <producto nombre="Fizz" rol="Luchador-Mago" description=""></producto>
+        <producto nombre="Tryndamere" rol="Luchador" description=""></producto>
     </productos>
