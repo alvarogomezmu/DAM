@@ -15,8 +15,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.filter.Filters;
+import org.jdom2.xpath.XPathExpression;
+import org.jdom2.xpath.XPathFactory;
 
 public class herramientas {
 
@@ -324,6 +330,28 @@ public class herramientas {
             if (ob != null) {
                 ob.close();
             }
+        }
+    }
+    
+    public static void xPath(Document doc, String equispad){
+                XPathExpression<Element> xpath1 = XPathFactory.instance().compile(equispad, Filters.element());
+        List<Element> elemento1 = xpath1.evaluate(doc);
+        Iterator it1 = elemento1.iterator();
+
+        while (it1.hasNext()) {
+            Element at = (Element) it1.next();
+            System.out.println(at.getName() + ": " + at.getValue());
+        }
+    }
+    
+    public static void xPathValue(Document doc, String equispad, String value){
+                XPathExpression<Element> xpath1 = XPathFactory.instance().compile(equispad, Filters.element());
+        List<Element> elemento1 = xpath1.evaluate(doc);
+        Iterator it1 = elemento1.iterator();
+
+        while (it1.hasNext()) {
+            Element at = (Element) it1.next();
+            System.out.println(at.getName() + ": " + at.getAttributeValue(value));
         }
     }
     

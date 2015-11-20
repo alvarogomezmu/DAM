@@ -5,6 +5,7 @@
  */
 package xpath;
 
+import Herramientas.herramientas;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -21,10 +22,10 @@ import org.jdom2.xpath.XPathFactory;
 public class Empresa {
 
     public static void main(String args[]) throws IOException {
-        Document doc = null;
+       Document doc = null;
 
         try {
-            doc = new SAXBuilder().build("C:\\petra\\persona.xml");
+            doc = new SAXBuilder().build("C:\\petra\\empresa.xml");
         } catch (JDOMException ex) {
             Logger.getLogger(Abreviado2.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -32,25 +33,23 @@ public class Empresa {
         }
 
         System.out.print("1.-Mostrar el root del empleado con nombre González \n");
-
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("/child::personas/descendant::nombre", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
-
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getName() + ": " + at.getValue());
-        }
+        herramientas.xPath(doc,"//ancestor::empleado[child::nombre='Gonzalez']/child::rut");
+       
 
         System.out.print("2.-Obtener todos los elementos nombre de nuestra empresa. En este caso nombres de departamentos y empleados. \n");
-
+        herramientas.xPath(doc,"/child::Empresa/child::departamento/descendant::nombre");
+        
         System.out.print("3.-Obtener la información del empleado cuyo root sea distinto a 10, 93, 44, 12. \n");
-
+        herramientas.xPath(doc,"/descendant::empleado[child::rut != '10934412']");
+        
         System.out.print("4.-Mostrar el teléfono del departamento finananzas. \n");
-
+        herramientas.xPath(doc,"/child::Empresa/child::departamento[child::nombre='Finanzas']");
+        
         System.out.print("5.-Mostrar los nombres de los empleados menos el nombre del empleado cuyo salario es 1000. \n");
-
+        herramientas.xPath(doc,"/descendant::empleado[attribute::salario!=1000000]/child::nombre");
+        
         System.out.print("6.-Obtener el nombre del departamento donde trabaja el empleado cuyo salario es 1000. \n");
+        herramientas.xPath(doc,"/child::Empresa/child::departamento/child::empleado[attribute::salario='1000000']/parent::departamento/child::nombre");
 
     }
 }

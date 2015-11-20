@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package semaforoascensor;
+package EjerciciosTema3AlumnosXpath;
 
 /**
  *
  * @author AlumnoT
  */
-public class hijoPersona {
+public class Ejercicio5 {
     
 }

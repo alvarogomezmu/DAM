@@ -1,20 +1,27 @@
 /*
-    En la clase Persona incluiremos los métodos set y get
+ En la clase Persona incluiremos los métodos set y get
  */
 package semaforoascensor;
 
-public class Persona {
+public class Persona extends Thread{
 
     int plantaInicio;
     int plantaFin;
     int peso;
-    String nombre;
+    int numero;
 
-    Persona(int pinic, int pfin, String nom, int kg) {
+    Persona(int pinic, int pfin, int nu, int kg) {
         this.plantaInicio = pinic;
         this.plantaFin = pfin;
         this.peso = kg;
-        this.nombre = nom;
+        this.numero = nu;
+    }
+
+    public void run() {
+        System.out.println("Persona" + numero + "va del piso" + plantaInicio + "al" + plantaFin);
+
+        metodos.entrarAscensor(this);
+        metodos.salirAscensor(this);
     }
 
     public void setPlantaInicio(int pinic) {
@@ -29,10 +36,6 @@ public class Persona {
         peso = kg;
     }
 
-    public void setNombre(String nom) {
-        nombre = nom;
-    }
-
     public int getPlantaInicio() {
         return plantaInicio;
     }
@@ -45,7 +48,7 @@ public class Persona {
         return peso;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getNumero() {
+        return numero;
     }
 }
