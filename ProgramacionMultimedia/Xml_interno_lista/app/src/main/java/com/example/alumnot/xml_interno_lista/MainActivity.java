@@ -14,13 +14,15 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by AlumnoT on 05/11/2015.
  */
 public class MainActivity extends Activity {
-    private ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+    private ArrayList<Personaje> listaPersonajes = new ArrayList<Personaje>();
     private ArrayList<String> listaTitulos = new ArrayList<String>();
+    private ArrayList<Personaje> getListaPersonajesOrdenados=new ArrayList<Personaje>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +41,35 @@ public class MainActivity extends Activity {
 
     private void parsearXML() throws XmlPullParserException, IOException {
 
-        XmlPullParser parser = getResources().getXml(R.xml.productos);
+        XmlPullParser parser = getResources().getXml(R.xml.personajes);
         int eventType = -1;
 
         while (eventType != XmlResourceParser.END_DOCUMENT) {
             eventType = parser.next();
             if (eventType == XmlResourceParser.START_TAG) {
                 String currentTagName = parser.getName();
-                if (currentTagName.equals("producto")) {
+                if (currentTagName.equals("personaje")) {
                     String nombreValue = parser.getAttributeValue(null, "nombre");
-                    String precioValue = parser.getAttributeValue(null, "precio");
-                    String descripcionValue = parser.getAttributeValue(null, "descripcion");
+                    String rolValue = parser.getAttributeValue(null, "rol");
+                    String historia = parser.getAttributeValue(null, "historia");
 
-                    Producto productoActual = new Producto(nombreValue, precioValue, descripcionValue);
+                    Personaje personajeActual= new Personaje(nombreValue, rolValue, imagen, historia);
 
-                    listaProductos.add(productoActual);
+                    listaPersonajes.add(personajeActual);
                     listaTitulos.add(nombreValue);
                 }
+            }
+        }
+    }
+
+    // listaTitulos sorted by name
+    Collections.sort(listaTitulos);
+
+    //Algorithm for sort the objects by attribute "nombre"
+    for(int i=0;i<listaTitulos.size();i++){
+        for(int j=0;j<listaPersonajes.size();j++){
+            if(listaTitulos.get(i).equals(listaPersonajes.get(j).getNombre())){
+                getListaPersonajesOrdenados.add(listaPersonajes.get(j));
             }
         }
     }
@@ -71,7 +85,7 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(MainActivity.this, DetalleActivity.class);
 
-                i.putExtra("objetoProducto", listaProductos.get(position));
+                i.putExtra("Personaje", getListaPersonajesOrdenados.get(position));
                 startActivity(i);
             }
         });

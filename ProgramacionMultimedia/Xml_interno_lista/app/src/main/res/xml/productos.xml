@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-    <productos>
-        <producto nombre="Zac" rol="Tanque" description=""></producto>
-        <producto nombre="Elise" rol="Mago" description="BLUE"></producto>
-        <producto nombre="Maestro yi" rol="Asesino" description=""></producto>
-        <producto nombre="Urgot Nigga" rol="Tirador" description=""></producto>
-        <producto nombre="Fizz" rol="Luchador-Mago" description=""></producto>
-        <producto nombre="Tryndamere" rol="Luchador" description=""></producto>
-    </productos>

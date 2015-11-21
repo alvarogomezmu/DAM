@@ -2,6 +2,7 @@ package com.example.alumnot.xml_interno_lista;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -14,10 +15,14 @@ public class DetalleActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle);
 
-        TextView campoNombre = (TextView) findViewById(R.id.campo_nombre);
+        ImageView campoImagen = (ImageView) findViewById(R.id.campoImagen);
+        TextView campoTexto = (TextView) findViewById(R.id.campoTexto);
         Bundle extras = getIntent().getExtras();
 
-        Producto productoActual = (Producto) extras.getSerializable("objetoProducto");
-        campoNombre.setText(productoActual.getNombre());
+        Personaje personajeActual = (Personaje) extras.getSerializable("Personaje");
+
+        int res_imagen=getResources().getIdentifier(personajeActual.getImagen(),"drawable",getPackageName());
+        campoImagen.setImageResource(res_imagen);
+        campoTexto.setText(personajeActual.getHistoria());
     }
 }
