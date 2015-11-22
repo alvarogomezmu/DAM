@@ -14,6 +14,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -52,6 +53,7 @@ public class MainActivity extends Activity {
                     String nombreValue = parser.getAttributeValue(null, "nombre");
                     String rolValue = parser.getAttributeValue(null, "rol");
                     String historia = parser.getAttributeValue(null, "historia");
+                    String imagen = parser.getAttributeValue(null, "imagen");
 
                     Personaje personajeActual= new Personaje(nombreValue, rolValue, imagen, historia);
 
@@ -63,10 +65,13 @@ public class MainActivity extends Activity {
     }
 
     // listaTitulos sorted by name
+
     Collections.sort(listaTitulos);
 
+
     //Algorithm for sort the objects by attribute "nombre"
-    for(int i=0;i<listaTitulos.size();i++){
+    for(int i=0;i<listaTitulos.size;i++){
+
         for(int j=0;j<listaPersonajes.size();j++){
             if(listaTitulos.get(i).equals(listaPersonajes.get(j).getNombre())){
                 getListaPersonajesOrdenados.add(listaPersonajes.get(j));
