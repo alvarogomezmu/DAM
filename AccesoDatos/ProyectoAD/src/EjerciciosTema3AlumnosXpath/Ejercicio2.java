@@ -57,13 +57,9 @@ public class Ejercicio2 {
         herramientas.xPath(doc, "//ciclo[grado='Superior']/nombre");
         
         System.out.print("\nApartado 7. Nombre de los Ciclos Formativos anteriores a 2010:\n");
-        herramientas.xPathValue(doc, "//decretoTitulo","ano<'2010'");
-        
+        herramientas.xPath(doc, "//decretoTitulo[@ano<'2010']/../nombre");
         
         System.out.print("\nApartado 8. Nombre de los Ciclos Formativos de 2008 o 2010:\n");
-        herramientas.xPathValue(doc, "//decretoTitulo","ano");
-        
-        
-
+        herramientas.xPath(doc, "//decretoTitulo[@ano='2008' on @ano='2010']/../nombre");
     }
 }

@@ -14,15 +14,19 @@ public class DetalleActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle);
+        TextView campoNombre = (TextView) findViewById(R.id.campoNombre);
+        TextView campoImagen = (TextView) findViewById(R.id.campoImagen);
+        TextView campoPosicion = (TextView) findViewById(R.id.campoPosicion);
+        TextView campoHistoria = (TextView) findViewById(R.id.campoHistoria);
 
-        ImageView campoImagen = (ImageView) findViewById(R.id.campoImagen);
-        TextView campoTexto = (TextView) findViewById(R.id.campoTexto);
         Bundle extras = getIntent().getExtras();
 
-        Futbolista futbolistaActual = (Futbolista) extras.getSerializable("Futbolista");
+        Futbolista futbolistaActual = (Futbolista) extras.getSerializable("Futbolistas");
 
-        int res_imagen=getResources().getIdentifier(futbolistaActual.getImagen(),"drawable",getPackageName());
-        campoImagen.setImageResource(res_imagen);
-        campoTexto.setText(futbolistaActual.getHistoria());
+        campoNombre.setText("Nombre: " + futbolistaActual.getNombre());
+        campoImagen.setText("Imagen: " + futbolistaActual.getImagen());
+        campoPosicion.setText("Posicion: " + futbolistaActual.getPosicion());
+        campoHistoria.setText("Historia: " + futbolistaActual.getHistoria());
+
     }
 }

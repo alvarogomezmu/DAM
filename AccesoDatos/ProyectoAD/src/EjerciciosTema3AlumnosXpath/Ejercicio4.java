@@ -20,29 +20,29 @@ import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
 import xpath.Abreviado2;
 
-public class Ejercicio5 {
+public class Ejercicio4 {
 
     public static void main(String args[]) {
         Document doc = null;
 
         try {
-            doc = new SAXBuilder().build("C:\\petra\\biblioteca.xml");
+            doc = new SAXBuilder().build("C:\\petra\\ciclos2.xml");
         } catch (JDOMException ex) {
             Logger.getLogger(Abreviado2.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Abreviado2.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
         System.out.print("\nApartado 1:\n");
-        herramientas.xPathValue(doc,"/biblioteca/libro/autor[@fechaNacimiento='28/03/1936']","fechaNacimiento");
+        herramientas.xPath(doc, "//ciclo[@id=//modulo[nombre='[MSGE']/ciclo]/nombre");
         
         System.out.print("\nApartado 2:\n");
-        herramientas.xPath(doc, "/biblioteca/libro/@fechaNacimiento");
+        herramientas.xPath(doc, "//child::modulo[/child::ciclo=//child::ciclo[/child::grado='Superior']/Attribute::id]/child::nombre");
         
         System.out.print("\nApartado 3:\n");
-        herramientas.xPath(doc, "//autor");
+        herramientas.xPath(doc, "//modulos/modulo[ciclo=//ciclo/decretoTitulo[@ano='2002']/../@id]/nombre");
         
         System.out.print("\nApartado 4:\n");
-        herramientas.xPathValue(doc, "/biblioteca/libro/autor[@fechaNacimiento='28/03/1936']","fechaNacimiento");
+        herramientas.xPath(doc, "//child::ciclos/child::ciclo[attribute::id=//child::modulo/child::curso[/self::curso='1']/child::ciclo]/child::grado");
     }
 }

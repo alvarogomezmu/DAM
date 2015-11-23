@@ -23,7 +23,6 @@ import java.util.Collections;
 public class MainActivity extends Activity {
     private ArrayList<Futbolista> listaFutbolistas = new ArrayList<Futbolista>();
     private ArrayList<String> listaTitulos = new ArrayList<String>();
-    private ArrayList<Futbolista> getListaFutbolistasOrdenados=new ArrayList<Futbolista>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +54,7 @@ public class MainActivity extends Activity {
                     String historia = parser.getAttributeValue(null, "historia");
                     String imagen = parser.getAttributeValue(null, "imagen");
 
-                    Futbolista futbolistaActual= new Futbolista(nombreValue, posicionValue, imagen, historia);
+                    Futbolista futbolistaActual= new Futbolista(nombreValue, posicionValue, historia);
 
                     listaFutbolistas.add(futbolistaActual);
                     listaTitulos.add(nombreValue);
@@ -64,21 +63,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    // listaTitulos sorted by name
 
-    //Collections.sort(listaTitulos);
-
-
-    //Algorithm for sort the objects by attribute "nombre"
-    /*for(int i=0;i<listaTitulos.size;i++){
-
-        for(int j=0;j<listaFutbolistas.size();j++){
-            if(listaTitulos.get(i).equals(listaFutbolistas.get(j).getNombre())){
-                getListaFutbolistasOrdenados.add(listaFutbolistas.get(j));
-            }
-        }
-    }
-*/
     private void montarListView() {
         ListView listView = (ListView) findViewById(R.id.lista);
 
@@ -90,7 +75,7 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(MainActivity.this, DetalleActivity.class);
 
-                i.putExtra("Futbolista", getListaFutbolistasOrdenados.get(position));
+                i.putExtra("Futbolistas",listaFutbolistas.get(position));
                 startActivity(i);
             }
         });

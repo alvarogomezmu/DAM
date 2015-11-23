@@ -18,7 +18,7 @@ public class Futbolista implements Serializable,Comparable<Futbolista> {
         return historia;
     }
 
-    public Futbolista(String nombre, String posicion, String imagen, String historia) {
+    public Futbolista(String nombre, String posicion, String historia) {
         this.nombre = nombre;
         this.posicion = posicion;
         this.imagen = imagen;
@@ -41,6 +41,15 @@ public class Futbolista implements Serializable,Comparable<Futbolista> {
         this.nombre = nombre;
     }
 
+    public String getHistoria(String historia){
+        return historia;
+    }
+
+    public void setHistoria(String historia){
+        this.historia = historia;
+    }
+
+
     public String getPosicion(){
         return posicion;
     }
@@ -48,6 +57,7 @@ public class Futbolista implements Serializable,Comparable<Futbolista> {
     public void setPosicion(String posicion){
         this.posicion = posicion;
     }
+
 
     @Override
     public int compareTo(Futbolista another){

@@ -26,26 +26,29 @@ public class Ejercicio3 {
         Document doc = null;
 
         try {
-            doc = new SAXBuilder().build("C:\\petra\\ciclos2.xml");
+            doc = new SAXBuilder().build("C:\\petra\\ciclos3.xml");
         } catch (JDOMException ex) {
             Logger.getLogger(Abreviado2.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Abreviado2.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        System.out.print("\nApartado 0:\n");
+        herramientas.xPath(doc, "//child::modulo/child::nombre");
+        
         System.out.print("\nApartado 1. Nombre de los módulos del ciclo ASIR:\n");
-        herramientas.xPath(doc, "//child::modulo");
+        herramientas.xPath(doc, "//child::modulo[child::ciclo='ASIR']/child::nombre");
 
         System.out.print("\nApartado 2. Nombre de los módulos que se imparten en el segundo curso de cualquier ciclo:\n");
-        herramientas.xPath(doc, "//child::web");
+        herramientas.xPath(doc, "//child::modulo[child::curso='2']/child::nombre");
 
         System.out.print("\nApartado 3. Nombre de los módulos de menos de 5 horas semanales:\n");
-        herramientas.xPath(doc, "//child::web");
+        herramientas.xPath(doc, "//child::modulo[child::horasSemanales<'5']/child::nombre");
 
         System.out.print("\nApartado 4. Nombre de los módulos que se imparten en el primer curso de ASIR:\n");
-        herramientas.xPath(doc, "//child::web");
+        herramientas.xPath(doc, "//child::modulo[child::curso='1' and child::ciclo='ASIR']/child::nombre");
 
         System.out.print("\nApartado 5. Horas semanales de los módulos de más de 3 horas semanales (4, 5, 5):\n");
-        herramientas.xPath(doc, "//child::web");
+        herramientas.xPath(doc, "//child::modulo[child::horasSemanales>'3']");
     }
 }
