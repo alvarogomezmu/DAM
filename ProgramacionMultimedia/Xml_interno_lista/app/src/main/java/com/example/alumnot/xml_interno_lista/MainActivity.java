@@ -21,9 +21,9 @@ import java.util.Collections;
  * Created by AlumnoT on 05/11/2015.
  */
 public class MainActivity extends Activity {
-    private ArrayList<Personaje> listaPersonajes = new ArrayList<Personaje>();
+    private ArrayList<Futbolista> listaFutbolistas = new ArrayList<Futbolista>();
     private ArrayList<String> listaTitulos = new ArrayList<String>();
-    private ArrayList<Personaje> getListaPersonajesOrdenados=new ArrayList<Personaje>();
+    private ArrayList<Futbolista> getListaFutbolistasOrdenados=new ArrayList<Futbolista>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,22 +42,22 @@ public class MainActivity extends Activity {
 
     private void parsearXML() throws XmlPullParserException, IOException {
 
-        XmlPullParser parser = getResources().getXml(R.xml.personajes);
+        XmlPullParser parser = getResources().getXml(R.xml.futbolistas);
         int eventType = -1;
 
         while (eventType != XmlResourceParser.END_DOCUMENT) {
             eventType = parser.next();
             if (eventType == XmlResourceParser.START_TAG) {
                 String currentTagName = parser.getName();
-                if (currentTagName.equals("personaje")) {
+                if (currentTagName.equals("futbolista")) {
                     String nombreValue = parser.getAttributeValue(null, "nombre");
-                    String rolValue = parser.getAttributeValue(null, "rol");
+                    String posicionValue = parser.getAttributeValue(null, "posicion");
                     String historia = parser.getAttributeValue(null, "historia");
                     String imagen = parser.getAttributeValue(null, "imagen");
 
-                    Personaje personajeActual= new Personaje(nombreValue, rolValue, imagen, historia);
+                    Futbolista futbolistaActual= new Futbolista(nombreValue, posicionValue, imagen, historia);
 
-                    listaPersonajes.add(personajeActual);
+                    listaFutbolistas.add(futbolistaActual);
                     listaTitulos.add(nombreValue);
                 }
             }
@@ -66,19 +66,19 @@ public class MainActivity extends Activity {
 
     // listaTitulos sorted by name
 
-    Collections.sort(listaTitulos);
+    //Collections.sort(listaTitulos);
 
 
     //Algorithm for sort the objects by attribute "nombre"
-    for(int i=0;i<listaTitulos.size;i++){
+    /*for(int i=0;i<listaTitulos.size;i++){
 
-        for(int j=0;j<listaPersonajes.size();j++){
-            if(listaTitulos.get(i).equals(listaPersonajes.get(j).getNombre())){
-                getListaPersonajesOrdenados.add(listaPersonajes.get(j));
+        for(int j=0;j<listaFutbolistas.size();j++){
+            if(listaTitulos.get(i).equals(listaFutbolistas.get(j).getNombre())){
+                getListaFutbolistasOrdenados.add(listaFutbolistas.get(j));
             }
         }
     }
-
+*/
     private void montarListView() {
         ListView listView = (ListView) findViewById(R.id.lista);
 
@@ -90,7 +90,7 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(MainActivity.this, DetalleActivity.class);
 
-                i.putExtra("Personaje", getListaPersonajesOrdenados.get(position));
+                i.putExtra("Futbolista", getListaFutbolistasOrdenados.get(position));
                 startActivity(i);
             }
         });

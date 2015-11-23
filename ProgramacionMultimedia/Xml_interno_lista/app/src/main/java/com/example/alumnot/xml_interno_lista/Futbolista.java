@@ -7,10 +7,10 @@ import java.io.Serializable;
 /**
  * Created by AlumnoT on 03/11/2015.
  */
-public class Personaje implements Serializable,Comparable<Personaje> {
+public class Futbolista implements Serializable,Comparable<Futbolista> {
 
     private String nombre;
-    private String rol;
+    private String posicion;
     private String imagen;
     private String historia;
 
@@ -18,9 +18,9 @@ public class Personaje implements Serializable,Comparable<Personaje> {
         return historia;
     }
 
-    public Personaje(String nombre, String rol, String imagen, String historia) {
+    public Futbolista(String nombre, String posicion, String imagen, String historia) {
         this.nombre = nombre;
-        this.rol = rol;
+        this.posicion = posicion;
         this.imagen = imagen;
         this.historia = historia;
     }
@@ -41,16 +41,16 @@ public class Personaje implements Serializable,Comparable<Personaje> {
         this.nombre = nombre;
     }
 
-    public String getRol(){
-        return rol;
+    public String getPosicion(){
+        return posicion;
     }
 
-    public void setRol(String rol){
-        this.rol = rol;
+    public void setPosicion(String posicion){
+        this.posicion = posicion;
     }
 
     @Override
-    public int compareTo(Personaje another){
+    public int compareTo(Futbolista another){
         if(another.nombre.compareTo(nombre)==-1){
             return -1;
         }

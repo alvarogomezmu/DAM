@@ -19,10 +19,10 @@ public class DetalleActivity extends Activity {
         TextView campoTexto = (TextView) findViewById(R.id.campoTexto);
         Bundle extras = getIntent().getExtras();
 
-        Personaje personajeActual = (Personaje) extras.getSerializable("Personaje");
+        Futbolista futbolistaActual = (Futbolista) extras.getSerializable("Futbolista");
 
-        int res_imagen=getResources().getIdentifier(personajeActual.getImagen(),"drawable",getPackageName());
+        int res_imagen=getResources().getIdentifier(futbolistaActual.getImagen(),"drawable",getPackageName());
         campoImagen.setImageResource(res_imagen);
-        campoTexto.setText(personajeActual.getHistoria());
+        campoTexto.setText(futbolistaActual.getHistoria());
     }
 }
