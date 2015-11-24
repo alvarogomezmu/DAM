@@ -11,27 +11,15 @@ public class Futbolista implements Serializable,Comparable<Futbolista> {
 
     private String nombre;
     private String posicion;
-    private String imagen;
     private String historia;
 
-    public String getHistoria(){
-        return historia;
-    }
 
     public Futbolista(String nombre, String posicion, String historia) {
         this.nombre = nombre;
         this.posicion = posicion;
-        this.imagen = imagen;
         this.historia = historia;
     }
 
-    public String getImagen(){
-        return imagen;
-    }
-
-    public void setImagen(String imagen){
-        this.imagen = imagen;
-    }
 
     public String getNombre(){
         return nombre;
@@ -41,14 +29,13 @@ public class Futbolista implements Serializable,Comparable<Futbolista> {
         this.nombre = nombre;
     }
 
-    public String getHistoria(String historia){
+    public String getHistoria(){
         return historia;
     }
 
     public void setHistoria(String historia){
         this.historia = historia;
     }
-
 
     public String getPosicion(){
         return posicion;

@@ -8,52 +8,61 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".DetalleActivity">
+    tools:context=".DetalleActivity"
+    android:id="@+id/relativel">
 
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView" >
 
-        <TextView
-            android:id="@+id/campoNombre"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:adjustViewBounds="true"
-            android:maxHeight="200dp" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/campoPosicion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:adjustViewBounds="true"
-            android:maxHeight="200dp" />
+            <ImageView
+                android:id="@+id/campoImagen"
+                android:layout_width="match_parent"
+                android:minWidth="800dp"
+                android:minHeight="800dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"/>
 
-        <TextView
-            android:id="@+id/campoImagen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:adjustViewBounds="true"
-            android:maxHeight="200dp" />
 
-        <TextView
-            android:id="@+id/campoHistoria"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:adjustViewBounds="true"
-            android:maxHeight="200dp" />
+            <TextView
+                android:id="@+id/campoPosicion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:maxHeight="200dp" />
 
-        <TextView
-            android:id="@+id/campoTexto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:isScrollContainer="true"
-            android:textColor="#ffffff" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/campoNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:maxHeight="200dp" />
+
+            <TextView
+                android:id="@+id/campoHistoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:maxHeight="200dp" />
+
+            <TextView
+                android:id="@+id/campoTexto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isScrollContainer="true"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

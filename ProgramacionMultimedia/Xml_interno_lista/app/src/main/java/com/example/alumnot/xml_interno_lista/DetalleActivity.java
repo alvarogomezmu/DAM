@@ -1,8 +1,10 @@
 package com.example.alumnot.xml_interno_lista;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -14,8 +16,11 @@ public class DetalleActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle);
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.relativel);
+
         TextView campoNombre = (TextView) findViewById(R.id.campoNombre);
-        TextView campoImagen = (TextView) findViewById(R.id.campoImagen);
+        ImageView campoImagen = (ImageView) findViewById(R.id.campoImagen);
         TextView campoPosicion = (TextView) findViewById(R.id.campoPosicion);
         TextView campoHistoria = (TextView) findViewById(R.id.campoHistoria);
 
@@ -24,9 +29,27 @@ public class DetalleActivity extends Activity {
         Futbolista futbolistaActual = (Futbolista) extras.getSerializable("Futbolistas");
 
         campoNombre.setText("Nombre: " + futbolistaActual.getNombre());
-        campoImagen.setText("Imagen: " + futbolistaActual.getImagen());
         campoPosicion.setText("Posicion: " + futbolistaActual.getPosicion());
         campoHistoria.setText("Historia: " + futbolistaActual.getHistoria());
 
+        switch (futbolistaActual.getNombre()) {
+            case "Zinedine Zidane":
+                campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.zidane));
+                layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.blanco));
+                break;
+            case "Juanito":
+                campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.juanito));
+                layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.blanco));
+                break;
+            case "Raul Gonzalez":
+                campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.raul));
+                layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.blanco));
+                break;
+            case "Iker Casillas":
+                campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.iker));
+                layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.blanco));
+                break;
+        }
     }
 }
+

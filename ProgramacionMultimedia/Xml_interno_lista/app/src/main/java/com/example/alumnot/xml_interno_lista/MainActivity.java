@@ -81,7 +81,6 @@ public class MainActivity extends Activity {
                     String nombreValue = parser.getAttributeValue(null, "nombre");
                     String posicionValue = parser.getAttributeValue(null, "posicion");
                     String historia = parser.getAttributeValue(null, "historia");
-                    String imagen = parser.getAttributeValue(null, "imagen");
 
                     Futbolista futbolistaActual= new Futbolista(nombreValue, posicionValue, historia);
 
