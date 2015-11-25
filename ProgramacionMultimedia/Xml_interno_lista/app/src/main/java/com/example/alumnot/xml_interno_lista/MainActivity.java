@@ -79,10 +79,11 @@ public class MainActivity extends Activity {
                 String currentTagName = parser.getName();
                 if (currentTagName.equals("futbolista")) {
                     String nombreValue = parser.getAttributeValue(null, "nombre");
+                    String dorsalValue = parser.getAttributeValue(null, "dorsal");
                     String posicionValue = parser.getAttributeValue(null, "posicion");
                     String historia = parser.getAttributeValue(null, "historia");
 
-                    Futbolista futbolistaActual= new Futbolista(nombreValue, posicionValue, historia);
+                    Futbolista futbolistaActual= new Futbolista(nombreValue, dorsalValue, posicionValue, historia);
 
                     listaFutbolistas.add(futbolistaActual);
                     listaTitulos.add(nombreValue);

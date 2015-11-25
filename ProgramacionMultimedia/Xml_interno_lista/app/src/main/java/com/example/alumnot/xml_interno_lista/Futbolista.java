@@ -10,12 +10,14 @@ import java.io.Serializable;
 public class Futbolista implements Serializable,Comparable<Futbolista> {
 
     private String nombre;
+    private String dorsal;
     private String posicion;
     private String historia;
 
 
-    public Futbolista(String nombre, String posicion, String historia) {
+    public Futbolista(String nombre, String dorsal, String posicion, String historia) {
         this.nombre = nombre;
+        this.dorsal = dorsal;
         this.posicion = posicion;
         this.historia = historia;
     }
@@ -45,6 +47,13 @@ public class Futbolista implements Serializable,Comparable<Futbolista> {
         this.posicion = posicion;
     }
 
+    public String getDorsal(){
+        return dorsal;
+    }
+
+    public void setDorsal(String dorsal){
+        this.dorsal = dorsal;
+    }
 
     @Override
     public int compareTo(Futbolista another){

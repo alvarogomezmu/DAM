@@ -21,14 +21,17 @@ public class DetalleActivity extends Activity {
 
         TextView campoNombre = (TextView) findViewById(R.id.campoNombre);
         ImageView campoImagen = (ImageView) findViewById(R.id.campoImagen);
+        TextView campoDorsal = (TextView) findViewById(R.id.campoDorsal);
         TextView campoPosicion = (TextView) findViewById(R.id.campoPosicion);
         TextView campoHistoria = (TextView) findViewById(R.id.campoHistoria);
+
 
         Bundle extras = getIntent().getExtras();
 
         Futbolista futbolistaActual = (Futbolista) extras.getSerializable("Futbolistas");
 
         campoNombre.setText("Nombre: " + futbolistaActual.getNombre());
+        campoDorsal.setText("Dorsal: " + futbolistaActual.getDorsal());
         campoPosicion.setText("Posicion: " + futbolistaActual.getPosicion());
         campoHistoria.setText(futbolistaActual.getHistoria());
 
@@ -41,14 +44,15 @@ public class DetalleActivity extends Activity {
                 campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.juan));
                 layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.blanco));
                 break;
-            case "Raul González":
-                campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.raulgonzalez));
+            case "Raúl González Blanco":
+                campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.siete));
                 layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.blanco));
                 break;
             case "Iker Casillas":
                 campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.iker));
                 layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.blanco));
                 break;
+
         }
     }
 }
