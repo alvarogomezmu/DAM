@@ -53,8 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:adjustViewBounds="true"
-                android:maxHeight="200dp" />
+                android:adjustViewBounds="true"/>
 
             <TextView
                 android:id="@+id/campoTexto"

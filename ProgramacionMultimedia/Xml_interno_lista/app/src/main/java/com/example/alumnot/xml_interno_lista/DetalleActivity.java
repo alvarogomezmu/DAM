@@ -30,19 +30,19 @@ public class DetalleActivity extends Activity {
 
         campoNombre.setText("Nombre: " + futbolistaActual.getNombre());
         campoPosicion.setText("Posicion: " + futbolistaActual.getPosicion());
-        campoHistoria.setText("Historia: " + futbolistaActual.getHistoria());
+        campoHistoria.setText(futbolistaActual.getHistoria());
 
         switch (futbolistaActual.getNombre()) {
             case "Zinedine Zidane":
                 campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.zidane));
                 layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.blanco));
                 break;
-            case "Juanito":
-                campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.juanito));
+            case "Juan Gómez González":
+                campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.juan));
                 layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.blanco));
                 break;
-            case "Raul Gonzalez":
-                campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.raul));
+            case "Raul González":
+                campoImagen.setImageDrawable(getResources().getDrawable(R.drawable.raulgonzalez));
                 layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.blanco));
                 break;
             case "Iker Casillas":
