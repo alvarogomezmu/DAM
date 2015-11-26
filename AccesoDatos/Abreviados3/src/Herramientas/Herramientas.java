@@ -1,9 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Herramientas;
 
-/**
- * @author Alvaro Gomez Muñoz
- * @version 1.0.1 de Octubre de 2015
- */
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -24,7 +25,7 @@ import org.jdom2.filter.Filters;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
 
-public class herramientas {
+public class Herramientas {
 
     /**
      * Metodo para recorrer listas
@@ -332,14 +333,9 @@ public class herramientas {
             }
         }
     }
-    /**
-     * Metodo para leer el documento con la ruta XPath que indiquemos.
-     * 
-     * @param doc Documento XML
-     * @param ruta  Ruta XPath
-     */
-    public static void xPath(Document doc, String ruta){
-                XPathExpression<Element> xpath1 = XPathFactory.instance().compile(ruta, Filters.element());
+
+    public static void xPath(Document doc, String equispad) {
+        XPathExpression<Element> xpath1 = XPathFactory.instance().compile(equispad, Filters.element());
         List<Element> elemento1 = xpath1.evaluate(doc);
         Iterator it1 = elemento1.iterator();
 
@@ -348,9 +344,9 @@ public class herramientas {
             System.out.println(at.getName() + ": " + at.getValue());
         }
     }
-    
-    public static void xPathValue(Document doc, String equispad, String value){
-                XPathExpression<Element> xpath1 = XPathFactory.instance().compile(equispad, Filters.element());
+
+    public static void xPathValue(Document doc, String equispad, String value) {
+        XPathExpression<Element> xpath1 = XPathFactory.instance().compile(equispad, Filters.element());
         List<Element> elemento1 = xpath1.evaluate(doc);
         Iterator it1 = elemento1.iterator();
 
@@ -358,5 +354,7 @@ public class herramientas {
             Element at = (Element) it1.next();
             System.out.println(at.getName() + ": " + at.getAttributeValue(value));
         }
-    }  
+    }
 }
+
+
