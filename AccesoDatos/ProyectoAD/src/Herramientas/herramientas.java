@@ -2,7 +2,7 @@ package Herramientas;
 
 /**
  * @author Alvaro Gomez Muñoz
- * @version 1.0.1 de Octubre de 2015
+ * @version 1.1.0 de Octubre de 2015
  */
 import java.io.BufferedReader;
 import java.io.EOFException;

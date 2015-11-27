@@ -44,7 +44,7 @@ public class Ejercicio1 {
         herramientas.xPath(doc,"//persona[@id=//puesto[@cargo='camarera']/@id and nacimiento[@lugar!=//persona[@id=//puesto[@cargo='director']/@id]/nacimiento/@lugar]][@id]");
         
         System.out.println("\nApartado 4. Mostrar el cargo que ocupan las personas  que tienen más de 1 dirección de comtacto  y cuyo sueldo sea mayor al  que gana la recepcionista");
-        herramientas.xPath(doc,"//persona[@id!=//puesto=camarera]");
+        herramientas.xPath(doc,"//persona[count(direccion)>1[@id] and sueldo[.>//personas/persona[@id=//puesto[@cargo='recepcionista']/@id]/sueldo]/..[@id]]");
         
         System.out.println("\nApartado 5. Muestra el nombre de todos las personas cuyo país de nacimiento sea distinto al de Jeanne Dupont\n");
         herramientas.xPath(doc,"//persona[nacimiento/@fecha=//persona[nombre!='Jeanne Dupont']/nacimiento/@fecha]/nombre");
