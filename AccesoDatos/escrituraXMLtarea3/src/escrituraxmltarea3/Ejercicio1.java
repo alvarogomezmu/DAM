@@ -1,16 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package escrituraxmltarea3;
 
+import Herramientas.Herramientas;
 import org.jdom2.Element;
 import java.io.IOException;
+import java.util.ArrayList;
 import org.jdom2.Document;
 
-import Herramientas.Herramientas;
-
+/**
+ *
+ * @author Alvaro
+ */
 public class Ejercicio1 {
     
     public static void main(String[] args) {
