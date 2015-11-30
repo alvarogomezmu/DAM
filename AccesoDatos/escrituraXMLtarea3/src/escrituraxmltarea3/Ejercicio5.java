@@ -8,7 +8,7 @@ import org.jdom2.Document;
 
 /**
  *
- * @author Alvaro
+ * @author Alvaro Gomez
  */
 public class Ejercicio5 {
 

@@ -6,8 +6,7 @@
 package Herramientas;
 
 /**
- * @author Alvaro Gomez Muñoz
- * @version 1.0.1 de Octubre de 2015
+ * @author Alvaro Gomez
  */
 import java.io.FileOutputStream;
 import java.io.IOException;
