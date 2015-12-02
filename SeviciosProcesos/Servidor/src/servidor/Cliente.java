@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package practica2tema1;
+package servidor;
 
 /**
  *
- * @author Alvaro Gomez
+ * @author AlumnoT
  */
-public class Principal {
+public class Cliente {
     
 }

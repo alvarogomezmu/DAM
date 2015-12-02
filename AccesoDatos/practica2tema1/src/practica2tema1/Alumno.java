@@ -9,13 +9,36 @@ package practica2tema1;
  *
  * @author AlumnoT
  */
-public class Alumno {
+public class alumno {
+    private String nombre;
+    private double nota;
+    alumno(){
+        
+    }
+    public alumno(String nombre, double nota){
+        nombre=this.nombre;
+        nota=this.nota;
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setNota(Double nota) {
+        this.nota = nota;
+    }
+
+    @Override
+    public String toString() {
+        return "alumno{" + "nombre=" + nombre + ", nota=" + nota + '}';
     }
     
 }
