@@ -24,8 +24,14 @@ public class Servidor {
             while (!mensaje.equals("cerrar")) {
                 System.out.print("Introduce argo: ");
                 mensaje = teclado.readLine();
+                int longitud = mensaje.length();
+                int longa = Integer.valueOf(String.valueOf(longitud),16);
+                System.out.println(longa);
+                System.out.println(mensaje);
+                os.write(longa);
                 os.write(mensaje.getBytes());
             }
+            
             //Mensaje eviado, ahora cierro el socket 
             clientSocket.close();
         } catch (IOException e) {

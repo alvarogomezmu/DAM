@@ -1,251 +1,154 @@
 package Calculadora;
 
 import java.awt.*;
-import javax.swing.*;
 import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.util.ArrayList;
 
-public class Calculadora extends JFrame implements ActionListener {
+// script package introduced in Java 1.6
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
 
-    JPanel[] row = new JPanel[5];
-    JButton[] button = new JButton[19];
-    String[] buttonString = {"7", "8", "9", "+",
-        "4", "5", "6", "-",
-        "1", "2", "3", "*",
-        ".", "/", "C", "√",
-        "+/-", "=", "0"};
-    int[] dimW = {300, 45, 100, 90};
-    int[] dimH = {35, 40};
-    Dimension displayDimension = new Dimension(dimW[0], dimH[0]);
-    Dimension numberDimension = new Dimension(dimW[1], dimH[1]);
-    Dimension rColumnDimension = new Dimension(dimW[2], dimH[1]);
-    Dimension zeroButDimension = new Dimension(dimW[3], dimH[1]);
-    boolean[] function = new boolean[4];
-    double[] temporary = {0, 0};
-    JTextArea display = new JTextArea(1, 20);
-    Font font = new Font("Times new Roman", Font.BOLD, 14);
+public class Calculadora implements ActionListener, KeyListener {
+
+    private JTextField io;
+    private ScriptEngine engine;
+    private ArrayList<JButton> controls;
+    private JPanel ui;
 
     Calculadora() {
-        super("Calculadora");
-        setDesign();
-        setSize(380, 250);
-        setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        GridLayout grid = new GridLayout(5, 5);
-        setLayout(grid);
-
-        for (int i = 0; i < 4; i++) {
-            function[i] = false;
-        }
-
-        FlowLayout f1 = new FlowLayout(FlowLayout.CENTER);
-        FlowLayout f2 = new FlowLayout(FlowLayout.CENTER, 1, 1);
-        for (int i = 0; i < 5; i++) {
-            row[i] = new JPanel();
-        }
-        row[0].setLayout(f1);
-        for (int i = 1; i < 5; i++) {
-            row[i].setLayout(f2);
-        }
-
-        for (int i = 0; i < 19; i++) {
-            button[i] = new JButton();
-            button[i].setText(buttonString[i]);
-            button[i].setFont(font);
-            button[i].addActionListener(this);
-        }
-
-        display.setFont(font);
-        display.setEditable(false);
-        display.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        display.setPreferredSize(displayDimension);
-        for (int i = 0; i < 14; i++) {
-            button[i].setPreferredSize(numberDimension);
-        }
-        for (int i = 14; i < 18; i++) {
-            button[i].setPreferredSize(rColumnDimension);
-        }
-        button[18].setPreferredSize(zeroButDimension);
-
-        row[0].add(display);
-        add(row[0]);
-
-        for (int i = 0; i < 4; i++) {
-            row[1].add(button[i]);
-        }
-        row[1].add(button[14]);
-        add(row[1]);
-
-        for (int i = 4; i < 8; i++) {
-            row[2].add(button[i]);
-        }
-        row[2].add(button[15]);
-        add(row[2]);
-
-        for (int i = 8; i < 12; i++) {
-            row[3].add(button[i]);
-        }
-        row[3].add(button[16]);
-        add(row[3]);
-
-        row[4].add(button[18]);
-        for (int i = 12; i < 14; i++) {
-            row[4].add(button[i]);
-        }
-        row[4].add(button[17]);
-        add(row[4]);
-
-        setVisible(true);
+        initUI();
     }
 
-    public void clear() {
-        try {
-            display.setText("");
-            for (int i = 0; i < 4; i++) {
-                function[i] = false;
-            }
-            for (int i = 0; i < 2; i++) {
-                temporary[i] = 0;
-            }
-        } catch (NullPointerException e) {
+    public final void initUI() {
+        // obtain a reference to the JS engine
+        engine = new ScriptEngineManager().
+                getEngineByExtension("js");
+
+        ui = new JPanel(new BorderLayout(2, 2));
+        controls = new ArrayList<JButton>();
+
+        JPanel text = new JPanel(new GridLayout(0, 1, 3, 3));
+        ui.add(text, BorderLayout.PAGE_START);
+        io = new JTextField(15);
+        Font font = io.getFont();
+        font = font.deriveFont(font.getSize() * 1.8f);
+        io.setFont(font);
+        io.setHorizontalAlignment(SwingConstants.TRAILING);
+        io.setFocusable(false);
+        text.add(io);
+
+        JPanel buttons = new JPanel(new GridLayout(4, 4, 2, 2));
+        ui.add(buttons, BorderLayout.CENTER);
+        String[] keyValues = {
+            "7", "8", "9", "/",
+            "4", "5", "6", "*",
+            "1", "2", "3", "-",
+            "0", ".", "C", "+"
+        };
+
+        for (String keyValue : keyValues) {
+            addButton(buttons, keyValue);
         }
+
+        JButton equals = new JButton("=");
+        configureButton(equals);
+        ui.add(equals, BorderLayout.LINE_END);
+
+        ui.setBorder(new EmptyBorder(5, 5, 5, 5));
     }
 
-    public void getSqrt() {
-        try {
-            double value = Math.sqrt(Double.parseDouble(display.getText()));
-            display.setText(Double.toString(value));
-        } catch (NumberFormatException e) {
-        }
+    public JComponent getUI() {
+        return ui;
     }
 
-    public void getPosNeg() {
+    public void addButton(Container c, String text) {
+        JButton b = new JButton(text);
+        configureButton(b);
+        c.add(b);
+    }
+
+    public void configureButton(JButton b) {
+        Font f = b.getFont();
+        b.setFont(f.deriveFont(f.getSize() * 1.5f));
+        b.addActionListener(this);
+        b.addKeyListener(this);
+        controls.add(b);
+    }
+
+    public void calculateResult() {
         try {
-            double value = Double.parseDouble(display.getText());
-            if (value != 0) {
-                value = value * (-1);
-                display.setText(Double.toString(value));
+            Object result = engine.eval(io.getText());
+            if (result == null) {
+                io.setText("Output was 'null'");
             } else {
+                io.setText(result.toString());
             }
-        } catch (NumberFormatException e) {
-        }
-    }
-
-    public void getResult() {
-        double result = 0;
-        temporary[1] = Double.parseDouble(display.getText());
-        String temp0 = Double.toString(temporary[0]);
-        String temp1 = Double.toString(temporary[1]);
-        try {
-            if (temp0.contains("-")) {
-                String[] temp00 = temp0.split("-", 2);
-                temporary[0] = (Double.parseDouble(temp00[1]) * -1);
-            }
-            if (temp1.contains("-")) {
-                String[] temp11 = temp1.split("-", 2);
-                temporary[1] = (Double.parseDouble(temp11[1]) * -1);
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-        }
-        try {
-            if (function[2] == true) {
-                result = temporary[0] * temporary[1];
-            } else if (function[3] == true) {
-                result = temporary[0] / temporary[1];
-            } else if (function[0] == true) {
-                result = temporary[0] + temporary[1];
-            } else if (function[1] == true) {
-                result = temporary[0] - temporary[1];
-            }
-            display.setText(Double.toString(result));
-            for (int i = 0; i < 4; i++) {
-                function[i] = false;
-            }
-        } catch (NumberFormatException e) {
-        }
-    }
-
-    public final void setDesign() {
-        try {
-            UIManager.setLookAndFeel(
-                    "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-        } catch (Exception e) {
+        } catch (ScriptException se) {
+            io.setText(se.getMessage());
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == button[0]) {
-            display.append("7");
-        }
-        if (ae.getSource() == button[1]) {
-            display.append("8");
-        }
-        if (ae.getSource() == button[2]) {
-            display.append("9");
-        }
-        if (ae.getSource() == button[3]) {
-            //add function[0]
-            temporary[0] = Double.parseDouble(display.getText());
-            function[0] = true;
-            display.setText("");
-        }
-        if (ae.getSource() == button[4]) {
-            display.append("4");
-        }
-        if (ae.getSource() == button[5]) {
-            display.append("5");
-        }
-        if (ae.getSource() == button[6]) {
-            display.append("6");
-        }
-        if (ae.getSource() == button[7]) {
-            //subtract function[1]
-            temporary[0] = Double.parseDouble(display.getText());
-            function[1] = true;
-            display.setText("");
-        }
-        if (ae.getSource() == button[8]) {
-            display.append("1");
-        }
-        if (ae.getSource() == button[9]) {
-            display.append("2");
-        }
-        if (ae.getSource() == button[10]) {
-            display.append("3");
-        }
-        if (ae.getSource() == button[11]) {
-            //multiply function[2]
-            temporary[0] = Double.parseDouble(display.getText());
-            function[2] = true;
-            display.setText("");
-        }
-        if (ae.getSource() == button[12]) {
-            display.append(".");
-        }
-        if (ae.getSource() == button[13]) {
-            //divide function[3]
-            temporary[0] = Double.parseDouble(display.getText());
-            function[3] = true;
-            display.setText("");
-        }
-        if (ae.getSource() == button[14]) {
-            clear();
-        }
-        if (ae.getSource() == button[15]) {
-            getSqrt();
-        }
-        if (ae.getSource() == button[16]) {
-            getPosNeg();
-        }
-        if (ae.getSource() == button[17]) {
-            getResult();
-        }
-        if (ae.getSource() == button[18]) {
-            display.append("0");
+        String command = ae.getActionCommand();
+        if (command.equals("C")) {
+            io.setText("");
+        } else if (command.equals("=")) {
+            calculateResult();
+        } else {
+            io.setText(io.getText() + command);
         }
     }
 
-    public static void main(String[] arguments) {
-        Calculadora c = new Calculadora();
+    private JButton getButton(String text) {
+        for (JButton button : controls) {
+            String s = button.getText();
+            if (text.endsWith(s)
+                    || (s.equals("=")
+                    && (text.equals("Equals") || text.equals("Enter")))) {
+
+                return button;
+            }
+        }
+        return null;
+    }
+
+    /* START - Because I hate mice. */
+    @Override
+    public void keyPressed(KeyEvent ke) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
+        String s = KeyEvent.getKeyText(ke.getKeyCode());
+        JButton b = getButton(s);
+        if (b != null) {
+            b.requestFocusInWindow();
+            b.doClick();
+        }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent ke) {
+    }
+    /* END - Because I hate mice. */
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                Calculadora sc = new Calculadora();
+                JFrame f = new JFrame("Calculet");
+                f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                f.setContentPane(sc.getUI());
+                f.pack();
+                f.setMinimumSize(f.getSize());
+                f.setLocationByPlatform(true);
+                f.setVisible(true);
+            }
+        });
     }
 }

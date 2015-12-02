@@ -147,3 +147,5 @@ Temporary Items
 /AccesoDatos/Server/nbproject/private/
 /SeviciosProcesos/Servidor/nbproject/private/
 /SeviciosProcesos/Servidor/build/
+/SeviciosProcesos/Servidor/dist/
+/DesarrolloInterfaces/CalculadoraFake/build/
