@@ -18,22 +18,19 @@ public class Servidor {
             //enviando mensaje
             InputStream is = clientSocket.getInputStream();
             OutputStream os = clientSocket.getOutputStream();
-            String mensaje = "ghj";
+            String mensaje = "";
+            PrintWriter fsalida = new PrintWriter(os,true);
             BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 
             while (!mensaje.equals("cerrar")) {
                 System.out.print("Introduce argo: ");
                 mensaje = teclado.readLine();
-                int longitud = mensaje.length();
-                int longa = Integer.valueOf(String.valueOf(longitud),16);
-                System.out.println(longa);
-                System.out.println(mensaje);
-                os.write(longa);
-                os.write(mensaje.getBytes());
+                fsalida.println(mensaje);
             }
             
             //Mensaje eviado, ahora cierro el socket 
             clientSocket.close();
+            fsalida.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
