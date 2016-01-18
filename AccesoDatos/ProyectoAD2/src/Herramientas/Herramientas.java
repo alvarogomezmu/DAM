@@ -60,6 +60,7 @@ public class Herramientas {
         }
     }
 
+    // Metodo para consultar    
     public static void consultaExistDB() {
 
     }
