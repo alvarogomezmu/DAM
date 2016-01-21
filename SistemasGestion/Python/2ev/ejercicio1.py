@@ -1,5 +1,8 @@
-# Mostrar el contenido de un fichero de texto cuyo nombre es introducido por el usuario. Realizar todas las comprobaciones pertinentes antes de leerlo línea a línea. 
-import os
+#_*_coding:utf-8_*_
+
+'''
+Escribir los numeros pares comprendidos entre el 1 y el 100 en un fichero y luego los muestro
+'''
 
 def comprobarFichero(f) :
 	if (f, os.W_OK) :
@@ -9,12 +12,27 @@ def comprobarFichero(f) :
 	else :
 		print 'Fichero no OK'
 
-def pedirDirectorio() :
-	opcion = raw_input("Introduce nombre del archivo: ")
-	return opcion
+def escribirPares(f) :
+	for i in range(100) :
+		if i % 2 == 0 :
+			f.write(str(i) + " ")
 
 # main
 
-archivo = open (pedirDirectorio(), "r")
+# Escribimos en el fichero
+escribir = open('numeros.txt','w')
+comprobarFichero(escribir)
 
-comprobarFichero(archivo)
+escribirPares(escribir)
+
+escribir.close()
+comprobarFichero(escribir)
+
+# Leemos del fichero
+leer = open ('numeros.txt','r')
+comprobarFichero(leer)
+
+print leer.read()
+
+leer.close()
+comprobarFichero(leer)
