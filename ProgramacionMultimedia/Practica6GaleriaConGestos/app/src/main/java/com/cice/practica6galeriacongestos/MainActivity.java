@@ -39,7 +39,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
-public class MainActivity extends Activity implements OnGesturePerformedListener {
+public class .MainActivity extends Activity implements OnGesturePerformedListener {
 
 	
 	//GUI
