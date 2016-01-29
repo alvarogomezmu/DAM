@@ -1,7 +1,10 @@
 package Herramientas;
 
+import static Herramientas.Herramientas.connectSQLite;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.xmldb.api.DatabaseManager;
@@ -104,15 +107,29 @@ public class Herramientas {
         }
     }
 
-    public static void connectSQLite(String ruta) {
+    private static Connection connectSQLite(String ruta) {
         Connection c = null;
 
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:c:\\sqlite3\\" + ruta + ".db");
+            c = DriverManager.getConnection("jdbc:sqlite:C:\\sqlite3\\" + ruta + ".db");
+            System.out.println("DB abierta con exito :D");
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Error al iniciar la DB D:");
         }
-        System.out.println("DB abierta con exito");
+        return c;
+    }
+
+    public static void consultSQLite(String ruta, String consulta) throws SQLException {
+        try {
+            Statement stmt = connectSQLite.CreateStatement();
+
+            ResulSet rs = stmt.executeQuery(consulta);
+ 
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
     }
 }
