@@ -1,5 +1,7 @@
 package Herramientas;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.xmldb.api.DatabaseManager;
@@ -17,8 +19,9 @@ import org.xmldb.api.modules.XPathQueryService;
  */
 public class Herramientas {
 
- /**
+    /**
      * Metodo para inicializar el driver de ExistDB
+     *
      * @param driver Ruta del driver
      */
     private static void initializeDriver(String driver) {
@@ -36,6 +39,7 @@ public class Herramientas {
 
     /**
      * Metodo para establecer una conexion con la DB especificada
+     *
      * @param uri Nombre de la base de datos
      * @param user Nombre de usuario
      * @return Collection con la URI, username y password
@@ -70,6 +74,7 @@ public class Herramientas {
 
     /**
      * Metodo para realizar una consulta a la base de datos
+     *
      * @param col Collection con la URI, username y password
      * @param consulta Consulta con sintaxis de XPath
      */
@@ -87,6 +92,7 @@ public class Herramientas {
             ex.printStackTrace();
         }
     }
+
     public static void operationExistDB(Collection col, String consulta) {
         try {
             XPathQueryService s = (XPathQueryService) col.getService("XPathQueryService", "1.0");
@@ -97,6 +103,16 @@ public class Herramientas {
             ex.printStackTrace();
         }
     }
-}
-    
 
+    public static void connectSQLite(String ruta) {
+        Connection c = null;
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:c:\\sqlite3\\" + ruta + ".db");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("DB abierta con exito");
+    }
+}
