@@ -1,8 +1,9 @@
 package Herramientas;
 
-import static Herramientas.Herramientas.connectSQLite;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -120,16 +121,50 @@ public class Herramientas {
         }
         return c;
     }
-
+/*
     public static void consultSQLite(String ruta, String consulta) throws SQLException {
         try {
             Statement stmt = connectSQLite.CreateStatement();
 
             ResulSet rs = stmt.executeQuery(consulta);
- 
+
         } catch (SQLException e) {
             e.printStackTrace();
 
         }
     }
+*/
+    public static void createTableSQLite(String ruta, String insercion) {
+
+    }
+
+    public static void createZi(String ruta, String consulta, float f) {
+        try {
+            Statement stmt = connectSQLite(ruta).createStatement();
+
+            stmt.executeUpdate(consulta);
+
+            System.out.println("Tabla creada");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void insertArraySQLite(String ruta) {
+        String[] values = {"101", "Programacion", "102", "Script", "103", "0.0", "104", "Pargela"};
+        PreparedStatement c1;
+        try {
+            c1 = connectSQLite(ruta).prepareStatement("insert into java2 values(?,?)");
+            for (int i = 0; i < values.length; i++) {
+                if (i % 2 != 0) {
+                    c1.setString(2, values[i]);
+                } else {
+                    c1.setInt(1, Integer.parseInt(values[i]));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Herramientas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } 
 }
