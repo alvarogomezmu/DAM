@@ -1,9 +1,9 @@
 package Herramientas;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -97,6 +97,13 @@ public class Herramientas {
         }
     }
 
+    /**
+     * Metodo para realizar operaciones en la base de datos y retornar el
+     * resultado
+     *
+     * @param col Collection con la URI, username y password
+     * @param consulta Consulta con sintaxis de XPath
+     */
     public static void operationExistDB(Collection col, String consulta) {
         try {
             XPathQueryService s = (XPathQueryService) col.getService("XPathQueryService", "1.0");
@@ -121,37 +128,68 @@ public class Herramientas {
         }
         return c;
     }
-/*
-    public static void consultSQLite(String ruta, String consulta) throws SQLException {
-        try {
-            Statement stmt = connectSQLite.CreateStatement();
 
-            ResulSet rs = stmt.executeQuery(consulta);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        }
-    }
-*/
-    public static void createTableSQLite(String ruta, String insercion) {
-
-    }
-
-    public static void createZi(String ruta, String consulta, float f) {
+    public static void consultSQLite(String ruta, String consulta) {
         try {
             Statement stmt = connectSQLite(ruta).createStatement();
 
-            stmt.executeUpdate(consulta);
+            ResultSet rs = stmt.executeQuery(consulta + ";");
 
-            System.out.println("Tabla creada");
+            while (rs.next()) {
+                int id = rs.getInt(1); // posicion que devuelve
+                String nom = rs.getString(2);
+                System.out.println("El id es: " + id);
+                System.out.println("El nombre es: " + nom);
+            }
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public static void createTableSQLite(String ruta, String create) {
+        try {
+            Statement stmt = connectSQLite(ruta).createStatement();
+
+            stmt.execute(create);
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void selectSQLite(String ruta, String consulta, float f) {
+        try {
+            PreparedStatement sel = connectSQLite(ruta).prepareStatement(consulta);
+            // select id from companya where salary > ? and nombre like "?"
+
+            sel.setFloat(1, f); // El 1 corresponde a los interrogantes del where
+
+            ResultSet r1 = sel.executeQuery();
+            while (r1.next()) {
+                System.out.println(r1.getInt(1)); // El 1 corresponde al numero de columnas del select
+            }
+            r1.close();
+            sel.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
 
-    public static void insertArraySQLite(String ruta) {
+    public static void insert2SQLite(String ruta, String tabla) {
+        try {
+            PreparedStatement insert = connectSQLite(ruta).prepareStatement("insert into " + tabla + " values(?,?)");
+            insert.setInt(1, 100);
+            insert.setString(2, "lenguaje");
+            insert.executeUpdate();
+            insert.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void insertArraySQLite(String ruta, String tabla) {
         String[] values = {"101", "Programacion", "102", "Script", "103", "0.0", "104", "Pargela"};
         PreparedStatement c1;
         try {
@@ -162,9 +200,10 @@ public class Herramientas {
                 } else {
                     c1.setInt(1, Integer.parseInt(values[i]));
                 }
+                c1.executeUpdate();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Herramientas.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
-    } 
+    }
 }
