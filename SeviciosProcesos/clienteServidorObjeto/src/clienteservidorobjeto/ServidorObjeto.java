@@ -13,27 +13,32 @@ import java.net.*;
  * @author AlumnoT
  */
 public class ServidorObjeto {
-    public static void main(String args[]) throws IOException, ClassNotFoundException{
-        int numeroPuerto=6000; // Puerto
+
+    public static void main(String args[]) throws IOException, ClassNotFoundException {
+
+        int numeroPuerto = 6000; // Puerto
         ServerSocket servidor = new ServerSocket(numeroPuerto);
         System.out.println("Esperando al cliente");
-        Socket cliente = servidor.accept(); 
-        // prparar el flujo de salida para objetos
+        Socket cliente = servidor.accept();
+
+        // Preparar el flujo de salida para objetos
         ObjectOutputStream outObjeto = new ObjectOutputStream(cliente.getOutputStream());
+
         // Preparar un objeto y enviarlo
         Persona per = new Persona("Juan", 20);
         outObjeto.writeObject(per); // enviando objeto
-        System.out.println("Envio:" + per.getNombre()+"*"+ per.getEdad());
-        // obtener un stream para leer objetos
+        System.out.println("Envio:" + per.getNombre() + "*" + per.getEdad());
+
+        // Obtener un stream para leer objetos
         ObjectInputStream inObjeto = new ObjectInputStream(cliente.getInputStream());
         Persona dato = (Persona) inObjeto.readObject();
-        System.out.println("Recibo: " + dato.getNombre() + "*" +dato.getEdad());
-        //cerrar streams y sockets
+        System.out.println("Recibo: " + dato.getNombre() + "*" + dato.getEdad());
+
+        // Cerrar streams y sockets
         outObjeto.close();
         inObjeto.close();
         cliente.close();
         servidor.close();
-                
+
     }
 }
-
