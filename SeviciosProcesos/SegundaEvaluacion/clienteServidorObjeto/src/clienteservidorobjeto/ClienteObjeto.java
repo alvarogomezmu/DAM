@@ -15,8 +15,8 @@ import java.net.*;
 public class ClienteObjeto {
 
     public static void main(String[] arg) throws IOException, ClassNotFoundException {
-        String Host = "localhost";
-        int Puerto = 6000; // Puerto remoto
+        String Host = "192.168.35.185";
+        int Puerto = 1027; // Puerto remoto
         System.out.println("Programa Cliente Iniciado");
         Socket cliente = new Socket(Host, Puerto);
 
