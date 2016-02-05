@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clienteservidorobjeto;
 
 import java.io.*;
@@ -16,7 +11,7 @@ public class ClienteObjeto {
 
     public static void main(String[] arg) throws IOException, ClassNotFoundException {
         String Host = "192.168.35.185";
-        int Puerto = 1027; // Puerto remoto
+        int Puerto = 6000; // Puerto remoto
         System.out.println("Programa Cliente Iniciado");
         Socket cliente = new Socket(Host, Puerto);
 
