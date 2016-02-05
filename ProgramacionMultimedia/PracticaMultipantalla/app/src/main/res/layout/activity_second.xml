@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#05af69">
 
     <TextView
         android:id="@+id/textView1"
@@ -36,7 +37,6 @@
         android:id="@+id/testApellido"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:gravity="center"
         android:padding="10dp"
         android:text="Apellido"

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#494949"
+    android:background="#05af69"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".PrimerActivity" >
@@ -78,7 +78,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Pasar Activity"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:background="#0e643c" />
 
     </LinearLayout>
 
