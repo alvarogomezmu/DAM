@@ -9,7 +9,7 @@ import android.widget.TextView;
  */
 public class SecondActivity extends Activity {
 
-    private TextView textNombre, textApellidos;
+    private TextView textNombre, textPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,15 +18,15 @@ public class SecondActivity extends Activity {
 
         // Declaracion de TextViews
         TextView textNombre = (TextView) findViewById(R.id.textNombre);
-        TextView textApellidos = (TextView) findViewById(R.id.testApellido);
+        TextView textPass = (TextView) findViewById(R.id.testPass);
 
         // Cogemos la informacion pasada del otro layaut y lo metemos en Strings
         String nombre = getIntent().getStringExtra("nombre");
-        String apellidos = getIntent().getStringExtra("apellido");
+        String pass = getIntent().getStringExtra("contraseña");
 
         // Anadimos los Strings a los TextViews
         textNombre.setText(nombre);
-        textApellidos.setText(apellidos);
+        textPass.setText(pass);
 
     }
 }

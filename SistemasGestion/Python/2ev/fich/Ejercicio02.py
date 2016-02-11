@@ -1,5 +1,9 @@
-# Pedimos por teclado un dierctorio, como no sabemos si lo sera o no. Indica que es lo que realmente se ha introducido
+#_*_coding_utf-8_*_
 
+'''
+Pedimos por teclado un directorio, como no sabemos si lo sera o no.
+Indica que es lo que realmente se ha introducido.
+'''
 
 import os
 
@@ -13,7 +17,10 @@ def comprobar(f) :
 	elif os.path.isdir(f) == True :
 		print "Es un directorio"
 	else :
-		print "Es una mierga"
+		print "No se sabe"
 
 # main
+
 comprobar(pedirDirectorio())
+# Nombre del fichero 'nombreFichero.txt'
+# Nombre del directorio 'nombreDirectorio'

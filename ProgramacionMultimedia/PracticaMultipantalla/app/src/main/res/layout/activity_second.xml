@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="10dp"
-        android:text="Apellidos:"
+        android:text="Contraseña:"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Apellido"
+        android:text="Contraseña"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>

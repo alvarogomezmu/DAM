@@ -1,4 +1,10 @@
-# Escribir los números  pares  comprendidos entre el 1 y el 100 en un fichero y luego lo muestras
+#_*_coding:utf-8_*_
+
+'''
+Escribir los numeros pares comprendidos entre
+el 1 y el 100 en un fichero y luego lo muestras
+'''
+
 import os
 
 def comprobarFichero(f) :
@@ -26,7 +32,7 @@ escribir.close()
 comprobarFichero(escribir)
 
 # Leemos del fichero
-leer = open ('pares.txt','r')
+leer = open ('numeros.txt','r')
 comprobarFichero(leer)
 
 print leer.read()

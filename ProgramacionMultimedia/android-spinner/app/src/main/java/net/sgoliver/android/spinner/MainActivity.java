@@ -1,5 +1,6 @@
 package net.sgoliver.android.spinner;
 
+import android.support.annotation.ColorRes;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
         cmbOpciones = (Spinner)findViewById(R.id.CmbOpciones);
 
         final String[] datos =
-                new String[]{"Elem1","Elem2","Elem3","Elem4","Elem5"};
+                new String[]{"Opción 1","Opción 2","Opción 3","Opción 4","Opción 5"};
 
         //Alternativa 1: Array java
         ArrayAdapter<String> adaptador =
@@ -39,6 +40,7 @@ public class MainActivity extends ActionBarActivity {
                 android.R.layout.simple_spinner_dropdown_item);
 
         cmbOpciones.setAdapter(adaptador);
+        cmbOpciones.setBackgroundColor(@ColorRes/);
 
         cmbOpciones.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {

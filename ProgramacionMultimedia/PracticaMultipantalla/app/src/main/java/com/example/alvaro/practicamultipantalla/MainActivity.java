@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 public class MainActivity extends Activity {
 
-    private EditText campoNombre, campoApellidos;
+    private EditText campoNombre, campoPass;
     private Button miBoton;
 
     @Override
@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
 
         // Declaracion de EditTexts
         final EditText campoNombre = (EditText) findViewById(R.id.EditNombre);
-        final EditText campoApellidos = (EditText) findViewById(R.id.EditApellidos);
+        final EditText campoPass = (EditText) findViewById(R.id.EditPass);
         // Declaracion de Button
         Button miBoton = (Button) findViewById(R.id.BotonPasar);
 
@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, SecondActivity.class);
                 i.putExtra("nombre", campoNombre.getText() + "");
-                i.putExtra("apellido", campoApellidos.getText() + "");
+                i.putExtra("contraseña", campoPass.getText() + "");
                 startActivity(i);
             }
         });
