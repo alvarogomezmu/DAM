@@ -18,7 +18,7 @@ public class SecondActivity extends Activity {
 
         // Declaracion de TextViews
         TextView textNombre = (TextView) findViewById(R.id.textNombre);
-        TextView textPass = (TextView) findViewById(R.id.testPass);
+        TextView textPass = (TextView) findViewById(R.id.testApellido);
 
         // Cogemos la informacion pasada del otro layaut y lo metemos en Strings
         String nombre = getIntent().getStringExtra("nombre");
