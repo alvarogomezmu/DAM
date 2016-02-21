@@ -15,17 +15,17 @@ public class Alumno extends Thread {
 
     Bienvenida saludo;
 
-    public Alumno(String nombre, Bienvenida mensajealumno) {
+    public Alumno(String nombre, Bienvenida mensaje_alumno) {
 
         this.nombre = nombre;
 
-        this.saludo = mensajealumno;
+        this.saludo = mensaje_alumno;
 
     }
 
     public void run() {
 
-        System.out.println("Alumno" + this.nombre + " llego.");
+        System.out.println(this.nombre + " llegó.");
 
         try {
 

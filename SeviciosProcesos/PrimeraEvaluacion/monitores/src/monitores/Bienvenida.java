@@ -16,7 +16,7 @@ public class Bienvenida {
             while (clase_comenzada == false) {
                 wait();
             }
-            System.out.println("Soy " + nombreA + ". Buenos dias criaturitas del señor");
+            System.out.println("Yo soy el " + nombreA + ". Buenos dias profe.");
 
         } catch (InterruptedException ex) {
             ex.printStackTrace();

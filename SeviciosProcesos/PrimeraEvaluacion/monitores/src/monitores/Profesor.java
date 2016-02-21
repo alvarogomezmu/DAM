@@ -12,7 +12,7 @@ public class Profesor extends Thread {
     }
 
     public void run() {
-        System.out.println(nombre + " llego.");
+        System.out.println(nombre + " entra en clase.");
 
         try {
             Thread.sleep(1000);
