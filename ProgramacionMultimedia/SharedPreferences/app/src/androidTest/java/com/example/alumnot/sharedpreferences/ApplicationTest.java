@@ -1,4 +1,4 @@
-package com.example.alvaro.sharedpreferences;
+package com.example.alumnot.sharedpreferences;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
