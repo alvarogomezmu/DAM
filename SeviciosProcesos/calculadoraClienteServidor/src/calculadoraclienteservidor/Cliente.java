@@ -23,6 +23,7 @@ public class Cliente {
         double num2;
         int operacion = 0;
         char opr;
+
         Socket cliente = new Socket("127.0.0.1", 12342);
         System.out.println("El cliente se conecta al servidor");
 
@@ -31,12 +32,14 @@ public class Cliente {
 
         num1 = Double.parseDouble(JOptionPane.showInputDialog("Introduzca el primer número"));
         num2 = Double.parseDouble(JOptionPane.showInputDialog("Introduzca el segundo número"));
+
         while (!((operacion >= 1) && (operacion <= 4))) {
             operacion = Integer.parseInt(JOptionPane.showInputDialog("¿Que operacion desea realizar? 1= +, 2= -,3= X,4= / "));
             if (!((operacion >= 1) && (operacion <= 4))) {
                 System.out.println("Operacion no valida");
             }
         }
+
         dados.writeInt(operacion);
         dados.writeDouble(num1);
         dados.writeDouble(num2);
@@ -44,6 +47,7 @@ public class Cliente {
 
         double total = resultado.readDouble();
         opr = resultado.readChar();
+
         System.out.println("Resultado de " + num1 + opr + num2 + " = " + total);
 
         resultado.close();
