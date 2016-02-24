@@ -1,5 +1,9 @@
 package Herramientas;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.xmldb.api.DatabaseManager;
@@ -246,6 +251,40 @@ public class Herramientas {
                 ps.executeUpdate();
             }
         } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void insertTokenizerSQLite(String db) throws IOException {
+        try {
+            BufferedReader entrada = new BufferedReader(new FileReader("C:\\petra\\prueba.txt"));
+            String consulta = "insert into eje1 values(?,?)";
+            String linea = null;
+            PreparedStatement ps = connectSQLite(db).prepareStatement(consulta);
+
+            // Se almacenan las lineas mientras haya lineas
+            while ((linea = entrada.readLine()) != null) {
+                // Declaracion de StringTokenizer para la linea almacenada
+                // con el token !
+                StringTokenizer tok = new StringTokenizer(linea, "#");
+                // Mientras haya tokens, añadirlos al ArrayList<Integer>
+                while (tok.hasMoreTokens()) {
+                    int id = Integer.parseInt(tok.nextToken());
+                    String nom = tok.nextToken();
+
+                    ps.setInt(1, id);
+                    ps.setString(2, nom);
+                    ps.executeUpdate();
+                }
+            }
+            // Cerrar el fichero
+            entrada.close();
+            // SI ha habido un error, mostrarlo
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
