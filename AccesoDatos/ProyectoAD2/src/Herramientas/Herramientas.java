@@ -27,7 +27,7 @@ import org.xmldb.api.modules.XPathQueryService;
 
 /**
  *
- * @author AlumnoT
+ * @author Alvaro Gomez
  */
 public class Herramientas {
 
