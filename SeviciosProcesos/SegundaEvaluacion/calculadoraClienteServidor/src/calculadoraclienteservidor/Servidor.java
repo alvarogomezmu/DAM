@@ -25,7 +25,7 @@ public class Servidor {
 
         // Crea un socket en el puerto 12342
         ServerSocket servidor = new ServerSocket(12342);
-        System.out.println("Porta 12342 aberta!");
+        System.out.println("Puerto 12342 abierto!");
 
         // Espera a que alguien se conecte. La ejecucion del servidor se bloquea en la llamada al metodo accept de la clase ServerSocket. 
         // Cuando alguien se conecta al servidor, el método se desbloquea y devuelve un objeto de la clasea clase de objeto Socket, que es un puerto de comunicación.
