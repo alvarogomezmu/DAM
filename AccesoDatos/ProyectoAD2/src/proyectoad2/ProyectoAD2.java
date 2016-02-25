@@ -25,15 +25,13 @@ public class ProyectoAD2 {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        ArrayList lista = new ArrayList();
+        // LLamada a el metodo connectExistDB
+        Collection col = Herramientas.connectExistDB("prueba", "admin");
 
-        lista.add(1);
-        lista.add("pepe");
-        lista.add(2);
-        lista.add("pepa");
-        lista.add(3);
-        lista.add("silvia");
-
+        Herramientas.operationExistDB(col, "let $b:= //libro/titulo\n"
+                + "return $b");
+        
+        
 
     }
 }
