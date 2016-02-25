@@ -1,0 +1,2 @@
+1- Crear un procedimiento que nos devuelva el número de personas que tenemos registradas y la media de su edad. 
+Concretamente nos mostrará la media de la edad si es mayor a 25.

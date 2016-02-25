@@ -1,0 +1,1 @@
+2-Basándonos en la tabla personas, vamos a crear una función que recibirá por parámetro el DNI de una persona y lo que hará es devolver la edad de esa persona en formato carácter, es decir, le paso el DNI 2 y me tiene que devolver 15 (en letra).
