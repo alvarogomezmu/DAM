@@ -35,11 +35,11 @@ public class Servidor {
         System.out.println("Nueva conexion con el cliente " + cliente.getInetAddress().getHostAddress());
 
         ObjectOutputStream resultado = new ObjectOutputStream(cliente.getOutputStream());
-        ObjectInputStream dados = new ObjectInputStream(cliente.getInputStream());
+        ObjectInputStream datos = new ObjectInputStream(cliente.getInputStream());
 
-        operacion = dados.readInt();
-        num1 = dados.readDouble();
-        num2 = dados.readDouble();
+        operacion = datos.readInt();
+        num1 = datos.readDouble();
+        num2 = datos.readDouble();
 
         // Bucle para que el usuario elija una opcion.
         if (operacion == 1) {
@@ -69,7 +69,7 @@ public class Servidor {
         resultado.flush();
 
         resultado.close();
-        dados.close();
+        datos.close();
         servidor.close();
     }
 }

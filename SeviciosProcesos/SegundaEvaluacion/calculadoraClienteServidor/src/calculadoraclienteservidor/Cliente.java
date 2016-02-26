@@ -28,7 +28,7 @@ public class Cliente {
         System.out.println("El cliente se conecta al servidor");
 
         ObjectInputStream resultado = new ObjectInputStream(cliente.getInputStream());
-        ObjectOutputStream dados = new ObjectOutputStream(cliente.getOutputStream());
+        ObjectOutputStream datos = new ObjectOutputStream(cliente.getOutputStream());
 
         num1 = Double.parseDouble(JOptionPane.showInputDialog("Introduzca el primer número"));
         num2 = Double.parseDouble(JOptionPane.showInputDialog("Introduzca el segundo número"));
@@ -40,10 +40,10 @@ public class Cliente {
             }
         }
 
-        dados.writeInt(operacion);
-        dados.writeDouble(num1);
-        dados.writeDouble(num2);
-        dados.flush();
+        datos.writeInt(operacion);
+        datos.writeDouble(num1);
+        datos.writeDouble(num2);
+        datos.flush();
 
         double total = resultado.readDouble();
         opr = resultado.readChar();
@@ -51,7 +51,7 @@ public class Cliente {
         System.out.println("Resultado de " + num1 + opr + num2 + " = " + total);
 
         resultado.close();
-        dados.close();
+        datos.close();
         cliente.close();
     }
 }
