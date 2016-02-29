@@ -1,1 +1,0 @@
-3-Escribir un procedimiento que visualice el apellido y el salario de los cinco empleados que tienen el salario más alto

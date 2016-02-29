@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package calculadoraclienteservidor;
 
 import java.io.IOException;
@@ -13,7 +8,7 @@ import java.net.Socket;
 
 /**
  *
- * @author AlumnoT
+ * @author Alvaro Gomez
  */
 public class Servidor {
 
@@ -27,8 +22,8 @@ public class Servidor {
         ServerSocket servidor = new ServerSocket(12342);
         System.out.println("Puerto 12342 abierto!");
 
-        // Espera a que alguien se conecte. La ejecucion del servidor se bloquea en la llamada al metodo accept de la clase ServerSocket. 
-        // Cuando alguien se conecta al servidor, el método se desbloquea y devuelve un objeto de la clasea clase de objeto Socket, que es un puerto de comunicación.
+        // Espera a que el cliente se conecte. La ejecucion del servidor se bloquea en la llamada al metodo accept de la clase ServerSocket. 
+        // Cuando alguien se conecta al servidor, el método se desbloquea y devuelve un objeto de la clase de objeto Socket, que es un puerto de comunicación.
         System.out.print("Esperando a que se conecte el cliente...");
         Socket cliente = servidor.accept();
 
@@ -41,7 +36,7 @@ public class Servidor {
         num1 = datos.readDouble();
         num2 = datos.readDouble();
 
-        // Bucle para que el usuario elija una opcion.
+        // Bucle para que el usuario elija una opcion dependiendo de la operacion que desee realizar.
         if (operacion == 1) {
 
             opr = '+';
@@ -63,11 +58,12 @@ public class Servidor {
             total = (num1 / num2);
 
         }
-
+        // escribimos el resultado final y la operacion
         resultado.writeDouble(total);
         resultado.writeChar(opr);
         resultado.flush();
-
+        
+        // cerramos el resultado final, los datos introducidos, y el servidor.
         resultado.close();
         datos.close();
         servidor.close();

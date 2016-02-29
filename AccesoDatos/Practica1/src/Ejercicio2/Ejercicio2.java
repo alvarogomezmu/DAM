@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ejercicio2;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
- *
- * @author Alvaro
- */
 public class Ejercicio2 {
 
     public static void main(String args[]) {
@@ -47,34 +38,34 @@ public class Ejercicio2 {
         for (Map.Entry obj1 : map1.entrySet()) {
             for (Map.Entry obj2 : map2.entrySet()) {
                 // Almacenamos los nombres de cada HashMap en una variable distinta
-                String nombre1 = ((Profesor) obj1.getValue()).getNombre();
-                String nombre2 = ((Profesor) obj2.getValue()).getNombre();
-
+                String nombre1 = ((Profesor)obj1.getValue()).getNombre();
+                String nombre2 = ((Profesor)obj2.getValue()).getNombre();
+                
                 // Buscamos coincidencias, si existe, mostrar un mensaje
-                if (nombre1 == nombre2) {
+                if(nombre1 == nombre2) {
                     System.out.println("El nombre " + nombre1 + " esta repetido");
                 }
-
+                
                 // Almacenamos las edades de cada HashMap en una variable distinta
-                int edad1 = ((Profesor) obj1.getValue()).getEdad();
-                int edad2 = ((Profesor) obj2.getValue()).getEdad();
-
+                int edad1 = ((Profesor)obj1.getValue()).getEdad();
+                int edad2 = ((Profesor)obj2.getValue()).getEdad();
+                
                 // Buscamos coincidencias, si existe, mostrar un mensaje
-                if (edad1 == edad2) {
+                if(edad1 == edad2) {
                     System.out.println("La edad " + edad1 + " esta repetida");
                 }
-
+                
                 // Almacenamos las titulaciones de cada HashMap en una variable distinta
-                String titulacion1 = ((Profesor) obj1.getValue()).getTitulacion();
-                String titulacion2 = ((Profesor) obj2.getValue()).getTitulacion();
-
+                String titulacion1 = ((Profesor)obj1.getValue()).getTitulacion();
+                String titulacion2 = ((Profesor)obj2.getValue()).getTitulacion();
+                
                 // Buscamos coincidencias, si existe, mostrar un mensaje
-                if (titulacion1 == titulacion2) {
+                if(titulacion1 == titulacion2) {
                     System.out.println("La titulacion " + titulacion1 + " esta repetida");
                 }
-
+                
                 // Buscamos profesores repetidos, si existe, mostrar un mensaje
-                if ((nombre1 == nombre2) && (edad1 == edad2) && (titulacion1 == titulacion2)) {
+                if((nombre1 == nombre2) && (edad1 == edad2) && (titulacion1 == titulacion2)) {
                     System.out.println("El profesor " + nombre1 + ", " + edad1 + ", " + titulacion1 + ", esta repetido");
                 }
             }

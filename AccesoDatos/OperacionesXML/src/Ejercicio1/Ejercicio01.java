@@ -7,6 +7,10 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
+/**
+ *
+ * @author Daniel Marcos Lorrio
+ */
 public class Ejercicio01 {
 
     public static void main(String args[]) {

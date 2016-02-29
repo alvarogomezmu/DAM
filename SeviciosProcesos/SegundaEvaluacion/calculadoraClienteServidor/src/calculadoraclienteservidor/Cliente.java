@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package calculadoraclienteservidor;
 
 import java.io.IOException;
@@ -14,11 +9,12 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author AlumnoT
+ * @author Alvaro Gomez
  */
 public class Cliente {
 
     public static void main(String[] args) throws UnknownHostException, IOException {
+        // declaracion de los dos numeros que pediremos por pantalla, la operacion y el caracter que se le asigna a dicha operacion
         double num1;
         double num2;
         int operacion = 0;
@@ -39,17 +35,18 @@ public class Cliente {
                 System.out.println("Operacion no valida");
             }
         }
-
+        // pasamos a los datos la operacion junto con los numeros introducidos
         datos.writeInt(operacion);
         datos.writeDouble(num1);
         datos.writeDouble(num2);
         datos.flush();
-
+        
         double total = resultado.readDouble();
         opr = resultado.readChar();
 
         System.out.println("Resultado de " + num1 + opr + num2 + " = " + total);
-
+        
+        // cerramos el resultado, los datos introducidos y el cliente
         resultado.close();
         datos.close();
         cliente.close();

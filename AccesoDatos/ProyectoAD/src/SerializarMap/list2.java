@@ -25,6 +25,7 @@ public class list2 {
             con2.nuevoContacto("asdf", 251);
             con3.nuevoContacto("por ejemplo", 882);
 
+            System.out.println(con1);
             HashMap mapa = new HashMap();
 
             mapa.put(1, con1);
@@ -33,7 +34,7 @@ public class list2 {
 
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:\\Users\\Alumnot\\Documents\\hash.obj"));
 
-            herramientas.escribirMap(oos, mapa);
+            oos.writeObject(mapa);
 
             oos.close();
         } catch (IOException e) {

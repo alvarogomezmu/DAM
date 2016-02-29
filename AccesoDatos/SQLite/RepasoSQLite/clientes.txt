@@ -1,0 +1,4 @@
+1@25@Madrid
+@2@24@Burgos
+@3@26@Madrid
+@4@22@EuskalHerria

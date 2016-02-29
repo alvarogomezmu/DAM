@@ -21,7 +21,7 @@ public class Chat {
             ServerSocket serverSocket = new ServerSocket(); //nuevo socket servidor
 
             // Realizando bind
-            InetSocketAddress addr = new InetSocketAddress("192.168.35.186", 1027);
+            InetSocketAddress addr = new InetSocketAddress("192.168.0.1", 1027);
             serverSocket.bind(addr);
 
             // Aceptando conexiones
@@ -32,7 +32,7 @@ public class Chat {
             Socket clientSocket = new Socket();
 
             //Estableciendo conexión
-            InetSocketAddress addrCliente = new InetSocketAddress("192.168.35.185", 1027);
+            InetSocketAddress addrCliente = new InetSocketAddress("192.168.0.1", 1027);
             
             
             // Recibiendo mensaje

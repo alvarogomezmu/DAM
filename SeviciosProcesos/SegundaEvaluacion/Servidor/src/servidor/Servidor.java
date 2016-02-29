@@ -12,7 +12,7 @@ public class Servidor {
             Socket clientSocket = new Socket();
 
             //Estableciendo conexión
-            InetSocketAddress addr = new InetSocketAddress("192.168.35.185", 1027);
+            InetSocketAddress addr = new InetSocketAddress("192.168.0.1", 1027);
             //InetSocketAddress addr = new InetSocketAddress("192.168.35.186", 1027);
             clientSocket.connect(addr);
 
