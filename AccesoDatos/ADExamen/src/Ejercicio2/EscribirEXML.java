@@ -44,7 +44,7 @@ public class EscribirEXML {
         asignaturas2.addContent(new Element("asignatura").setAttribute("codigo", "a06").setText("Lengua Inglesa"));
         asignaturas2.addContent(new Element("inicio").setText("Septiembre"));
 
-        // Creamos los hijos del primer hijo de root
+        // Creamos los hijos del segundo hijo de root
         ArrayList<Element> hijos2 = new ArrayList<Element>();
         hijos2.add(new Element("apellido1").setText("Perez"));
         hijos2.add(new Element("apellido2").setText("Garcia"));
@@ -61,7 +61,7 @@ public class EscribirEXML {
         asignaturas3.addContent(new Element("asignatura").setAttribute("codigo", "a05").setText("Lengua"));
         asignaturas3.addContent(new Element("inicio").setText("febrero"));
 
-        // Creamos los hijos del primer hijo de root
+        // Creamos los hijos del tercer hijo de root
         ArrayList<Element> hijos3 = new ArrayList<Element>();
         hijos3.add(new Element("apellido1").setText("Perez"));
         hijos3.add(new Element("apellido2").setText("Perez"));

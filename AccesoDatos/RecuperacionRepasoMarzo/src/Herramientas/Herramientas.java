@@ -1,7 +1,7 @@
 package Herramientas;
 
 /**
- * @author Alvaro Gomez Muñoz
+ * @author Alvaro Gomez
  * @version 1.0.1 de Octubre de 2015
  */
 import java.io.BufferedReader;
