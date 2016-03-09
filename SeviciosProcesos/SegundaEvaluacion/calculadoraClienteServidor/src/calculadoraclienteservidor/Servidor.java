@@ -23,12 +23,11 @@ public class Servidor {
         System.out.println("Puerto 12342 abierto!");
 
         // Espera a que el cliente se conecte. La ejecucion del servidor se bloquea en la llamada al metodo accept de la clase ServerSocket. 
-        // Cuando alguien se conecta al servidor, el método se desbloquea y devuelve un objeto de la clase de objeto Socket, que es un puerto de comunicación.
         System.out.print("Esperando a que se conecte el cliente...");
         Socket cliente = servidor.accept();
 
-        System.out.println("Nueva conexion con el cliente " + cliente.getInetAddress().getHostAddress());
-
+        //System.out.println("Nueva conexion con el cliente " + cliente.getInetAddress().getHostAddress());
+        
         ObjectOutputStream resultado = new ObjectOutputStream(cliente.getOutputStream());
         ObjectInputStream datos = new ObjectInputStream(cliente.getInputStream());
 
@@ -62,7 +61,7 @@ public class Servidor {
         resultado.writeDouble(total);
         resultado.writeChar(opr);
         resultado.flush();
-        
+
         // cerramos el resultado final, los datos introducidos, y el servidor.
         resultado.close();
         datos.close();

@@ -35,7 +35,7 @@ public class Cliente {
                 System.out.println("Operacion no valida");
             }
         }
-        // pasamos a los datos la operacion junto con los numeros introducidos
+        // pasamos la operacion (junto con los numeros introducidos) a los datos  
         datos.writeInt(operacion);
         datos.writeDouble(num1);
         datos.writeDouble(num2);
