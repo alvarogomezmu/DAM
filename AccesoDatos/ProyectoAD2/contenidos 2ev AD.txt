@@ -1,0 +1,4 @@
+-consulta xquery
+-base datos oracle para lanzar en oracle y sacar procedimiento para llamarlo
+-estructura squlite e introducir datos, consultas masivsa, etc
+

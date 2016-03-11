@@ -1,0 +1,58 @@
+    /* Ejercicio 1 (3 PUNTOS) USO DE MODULOS:
+    CASO 1: Crearos un fichero con nombre exa.txt dentro de un directorio llamado direxa (1 PUNTO)
+        1. Conocer el directorio donde estamos trabajando (Debemos ver por pantalla el path de direxa (0,25 puntos)
+        2. Recorre el directorio direxa y todos sus elementos (0,25 puntos)
+        3. Cambiar los permisos del fichero exa.txt para que pueda leer el propietario (0,25 puntos)
+        4. Eliminar el fichero (0,25 puntos)
+    
+    CASO 2: Creamos una funcion que pasandole una palabra nos tiene que decir si es un palíndromo. Vamos a agregarle un docstring (con pruebas incluidas) (1 PUNTO)
+    
+    CASO 3: Escribir un programa que reciba un nombre de archivo al ejecutarse, lo procese e imprima por pantalla cuantas lineas tiene. (1 PUNTO)
+    */
+    
+    /* Ejercicio 2 USO DE FICHEROS. Dado el siguiente fichero con informacion sobre ALUMNOS (2,5 puntos)
+    Nombre  edad    nacionalidad
+    Daniel  24      si
+    Silvia  17      si
+    Manolo  50      no
+    Alicia  15      no
+    
+    En la nacionalidad miramos: Si es Español NO es extranjero
+        1. Crear el fichero de ALUMNOS.txt que se os facilita inicialmente. DEBEMOS guardarlo
+            separado por espacios o tabulaciones y con los campos Nombre edad y Nacionalidad (0,5 puntos)
+    
+        2. Leer el fichero ALUMNO.txt y guardarlo en la estructura que consideres pertinente (0,75 puntos)
+    
+        3. Con la estrucutra del apartado anterior deberemos crear una funcion donde vamos a filtrar a los alumnos que vamos a aceptar (0,75 puntos)
+            Solo pueden matricularse los alumnos que su edad sea mayor a 18.
+        
+        4. Una vez hayamos filtrado a dichos alumnos los guardaremos en un fichero llamado MATRICULADOS.txt (0,25 puntos) y mostraremos los datos del fichero (0,25 puntos)
+    */
+    
+    /* Ejercicio 3. USO DE FICHEROS (2,5 puntos)
+        
+        Nuestro fichero tiene esta estrucutra: Notas.txt
+        Perico: Los Palotes: 90:75:38:65
+        Yayita: Vinagre: 39:49:58:55
+        Fulanita: De Tal: 96:100:36:71
+
+        Queremos recorrer el fichero de tal manera que obtengamos como salida:
+        Perico Los Palotes obtuvo 67
+        Deberemos obtener la media de todos los valores de cada persona
+    */
+    
+    /* Ejercicio 4. USO DE OBJETOS (2 PUNTOS)
+    
+    Crea una clase llamada Perros. Contendra la Raza, el peso y la nacionalidad.
+    Metodo que debe implementar:
+        * Mostrar (): Imprimira por pantalla los datos de los perros.
+        * Mostrar_peso (): Debe mostrar todos los pesos de los perros.
+    (1 PUNTO)
+    
+    -Vamos a usar la clase perro para crear una estructura (la que mejor os venga) y guardar en ella perros y mostrar cada uno de ellos, y cual de los perros introducidos pesa mas.
+    -Para obtener los datos que vamos a guardar de cada perro deberemos leer la informacion de un fichero llamado perros.txt
+    -Su contenido es una linea con los datos de cada perro. Pueden estar separados como vosotros querais.
+    -El orden debe ser el que se os ha facilitado: raza, peso y nacionalidad. 
+    (1 PUNTO)
+    
+    */
