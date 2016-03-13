@@ -10,7 +10,7 @@ public class RepasoSQLite {
 
     public static void main(String[] args) {
         // Inserts
-        //Herramientas.insertClientes("gurru", "clientes.txt", "cliente");
+        Herramientas.insertClientes("gurru", "clientes.txt", "cliente");
         //Herramientas.insertPedidos("pedidos.txt", "gurru", "pedido");
         
         // Selects
@@ -18,6 +18,6 @@ public class RepasoSQLite {
         //Herramientas.selectPedido("gurru");
         
         // Select pedidos con direccion = Madrid
-        Herramientas.selectDireccion("gurru", "Madrid");
+        //Herramientas.selectDireccion("gurru", "Madrid");
     }
 }
