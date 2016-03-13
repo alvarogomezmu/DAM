@@ -12,16 +12,16 @@ public class Metodos {
      * Metodo para actualizar el panel de informacion
      */
     public static void actualizarInfo() {
-        Ventana.info.setText("Clientes actuales: " + (ModernSuperMarket.clientes - ModernSuperMarket.clientesAtendidos)
-                + "\nCajas activas: " + ModernSuperMarket.cajas + "\nRecaudacion total: " + ModernSuperMarket.recaudacion);
+        Ventana.info.setText("Clientes actuales: " + (ModernSupermarket.clientes - ModernSupermarket.clientesAtendidos)
+                + "\nCajas activas: " + ModernSupermarket.cajas + "\nRecaudacion total: " + ModernSupermarket.recaudacion);
     }
 
     /**
      * Metodo para inicializar los estados de las cajas
      */
     public static void inicializarCajas() {
-        for (int i = 0; i < ModernSuperMarket.cajas; i++) {
-            ModernSuperMarket.estadoCaja[i] = true;
+        for (int i = 0; i < ModernSupermarket.cajas; i++) {
+            ModernSupermarket.estadoCaja[i] = true;
         }
     }
 
@@ -32,7 +32,7 @@ public class Metodos {
      */
     public static int calcularClientes() {
         Random rand = new Random();
-        int num = rand.nextInt(450) + 50;
+        int num = rand.nextInt(50) + 50;
         return num;
     }
 

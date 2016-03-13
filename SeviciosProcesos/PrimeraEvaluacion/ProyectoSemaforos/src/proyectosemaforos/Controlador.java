@@ -21,7 +21,7 @@ public class Controlador {
     // Piso actual en la que se encuentra el ascensor
     public static int pisoActual = 0;
     // Numero total de personas que se crearan
-    public static int totalPersonas = 11;
+    public static int totalPersonas = 50;
     // Contador de personas para asignarles numeros
     public static int countPersonas = 0;
     // Boolean para controlar la direccion del ascensor

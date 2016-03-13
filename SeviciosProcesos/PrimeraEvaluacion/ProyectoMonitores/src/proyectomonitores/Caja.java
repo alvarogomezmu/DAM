@@ -26,9 +26,9 @@ public class Caja {
      */
     public synchronized int asignarCaja() {
         while (esperando) {
-            for (int i = 0; i < ModernSuperMarket.cajas; i++) {
-                if (ModernSuperMarket.estadoCaja[i]) { //&& ModernSuperMarket.numeroCola.get(ModernSuperMarket.clientesAtendidos) == num) {
-                    ModernSuperMarket.estadoCaja[i] = false;
+            for (int i = 0; i < ModernSupermarket.cajas; i++) {
+                if (ModernSupermarket.estadoCaja[i]) { //&& ModernSupermarket.numeroCola.get(ModernSupermarket.clientesAtendidos) == num) {
+                    ModernSupermarket.estadoCaja[i] = false;
                     return i;
                 }
             }
@@ -54,16 +54,16 @@ public class Caja {
     public void pagar(int num, int ca, int pa) throws InterruptedException {
         // Dormimos el hilo simulando que esta pagando y mostramos sus datos
         sleep(Metodos.generarDormir(3000));
-        Ventana.texto_ventana.get(ca).setText(Ventana.texto_ventana.get(ca).getText() + "Cliente " + num + " pagando en " + ca + "\n");
-        sleep(Metodos.generarDormir(5000));
-        Ventana.texto_ventana.get(ca).setText(Ventana.texto_ventana.get(ca).getText() + "Cliente " + num + " termina en " + ca + ", pago " + pa + "\n");
+        Ventana.texto_ventana.get(ca).setText(Ventana.texto_ventana.get(ca).getText() + "Cliente " + num + " pagando en caja " + ca + "\n");
+        sleep(Metodos.generarDormir(3000));
+        Ventana.texto_ventana.get(ca).setText(Ventana.texto_ventana.get(ca).getText() + "Cliente " + num + " termina, pago " + pa + "€\n");
 
         // Anadimos el pago a la recaudacion total
-        ModernSuperMarket.recaudacion += pa;
+        ModernSupermarket.recaudacion += pa;
         // Cambiamos el estado de la caja para indicar que esta libre
-        ModernSuperMarket.estadoCaja[ca] = true;
+        ModernSupermarket.estadoCaja[ca] = true;
         // Aumentamos el contador de clientes atendidos
-        ModernSuperMarket.clientesAtendidos++;
+        ModernSupermarket.clientesAtendidos++;
 
         // Despertamos al siguiente Cliente
         despertar();
