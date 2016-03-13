@@ -4,7 +4,7 @@ package proyectomonitores;
  *
  * @author Alvaro Gomez
  */
-public class ModernSuperMarket {
+public class ModernSupermarket {
 
     // Numero de cajas
     public static int cajas;
