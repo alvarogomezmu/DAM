@@ -1,10 +1,16 @@
+/*
+Disena e implementa un programa multihilo que sea capaz de crear 4 hilos que sean 
+capaces de escribir un array de 10 enteros, segun el siguiente criterio.
+
+Cada hilo generara 50 numeros aleatorios entre 0 y 99, y usaran el Array como contador en funcion del rango del numero aleatorio obtenido
+*/
 package examenpsyp;
 
 import java.util.concurrent.Semaphore;
 
 /**
  *
- * @author Daniel Marcos Lorrio
+ * @author Alvaro Gomez
  */
 public class Principal {
 

@@ -26,7 +26,7 @@ public class Metodos {
     }
 
     /**
-     * Metodo para crear un numero aleatorio entre 50 y 500 para los clientes
+     * Metodo para crear un numero aleatorio para los clientes
      *
      * @return Numero generado
      */

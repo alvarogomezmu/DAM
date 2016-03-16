@@ -5,7 +5,7 @@ import java.util.concurrent.Semaphore;
 
 /**
  *
- * @author Daniel Marcos Lorrio
+ * @author Alvaro Gomez
  */
 public class Metodos {
 

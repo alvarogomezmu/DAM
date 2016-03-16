@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Daniel Marcos Lorrio
+ * @author Alvaro Gomez
  */
 public class Sumador extends Thread {
 
