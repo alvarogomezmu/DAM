@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=id\ nombre\ apellidos\ fecha
+comment0.target=Alumno(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.util.Calendar)
+comment1.params=id\ nombre\ apellidos\ fecha\ horarioM_T\ grupo
+comment1.target=Alumno(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.util.Calendar,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ obtenerAlumno()
+comment3.params=grupo\ horarioM_T
+comment3.target=void\ ponGrupo(java.lang.String,\ int)
+comment4.params=grupo
+comment4.target=void\ ponGrupo(java.lang.String)
+numComments=5

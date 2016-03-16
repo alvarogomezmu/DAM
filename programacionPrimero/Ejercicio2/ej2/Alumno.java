@@ -1,4 +1,3 @@
-package ejercicio2;
 /*
  Clase que hereda de la clase anterior Persona
  Clase Alumno

@@ -1,4 +1,4 @@
-package ejercicio2;
+ 
 /*
  Realizar un programa en Java que permita gestionar alumnos, profesores y otro personal en un centro educativo. 
  Para ello se construiran las siguientes clases:

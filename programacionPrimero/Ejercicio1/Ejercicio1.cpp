@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #define TAM 10
 
-/*Funcion que obtiene un valor, en este caso la posicion del caracter en el array, datos obtenidos en funBusca*/
+/*Funcion que mediante el paso por parametro de un caracter y un array de caracteres, devuelve la posicion del primero en el segundo*/
 
-void funPinta (int p){
+void imprimir (int p){
 	
 	while(p!=0){
 		
@@ -27,17 +27,16 @@ void funPinta (int p){
 	}	
 }
 
-/*Funcion que va a buscar el caracter pasado por parametro en un array pasado por parametro tambien
-una vez lo encuentra, hace la llamada a la funcion funPinta que realizara la impresion de numeros
+/*Funcion que imprime por pantalla una serie de numeros tal y como muestra el ejemplo mostrado psoteriormente
 */
 
-void funBusca(char c, char ar[]){
+void buscar(char c, char ar[]){
 	
 	for (int i=0; i<=10 ; i++){
 		
 		if (ar[i]==c){
 			
-			funPinta(i);
+			imprimir(i);
 			break;
 		}
 		
@@ -45,16 +44,20 @@ void funBusca(char c, char ar[]){
 }
 	
 
-
+/*
+El programa principal utilizara dichas funciones descritas con anterioridad, para solicitar un caracter pro pantalla y desplegar una serie de numeros en funcion de la posicion
+que ocupe dicho caracter en un array de caracteres declarado en el programa
+*/
 main(){
 	  
     int i=0;
 	char car, arr[TAM]={'#', '$', '(', '&', '%', '#', '@', '¿', '?', ')'};
     
-    printf("Introduce un caracter: ");
+    printf("# $ ( & % # @ ? ? )");
+    printf("\nIntroduce un caracter: ");
     scanf("%c", &car);
     	
-	funBusca(car, arr);
+	buscar(car, arr);
 }
 
  
