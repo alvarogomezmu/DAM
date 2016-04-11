@@ -2,19 +2,17 @@
  En una de las colecciones guardaremos los equipos informáticos cuyo precio no tenga descuento y en la otra los mismo equipos pero con descuento.
  Una vez hayamos guardado los objetos en cada estructura pertinente. Debemos mostrar el equipo informático con mayor precio y el de menor precio.
  */
-package Tema0;
+package Tarea1;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 /**
  *
  * @author Alvaro
  */
-public class tema0 {
+public class Ejercicio1 {
 
     public static void main(String args[]) {
-
         // Crear 4 equipos de precio normal (nombre,cantidad,precio)
         Equipo equipo1 = new Equipo();
         equipo1.nuevoEquipo("Dell", 20, 537);
@@ -25,7 +23,6 @@ public class tema0 {
         Equipo equipo4 = new Equipo();
         equipo4.nuevoEquipo("Samsung", 6, 480);
 
-    
         // Crear copia de cada uno de los 4 equipos
         Equipo equipo1Desc = new Equipo();
         equipo1Desc.nuevoEquipo(equipo1.getNombre(), equipo1.getCantidad(), equipo1.getPrecio());
@@ -35,25 +32,21 @@ public class tema0 {
         equipo3Desc.nuevoEquipo(equipo3.getNombre(), equipo3.getCantidad(), equipo3.getPrecio());
         Equipo equipo4Desc = new Equipo();
         equipo4Desc.nuevoEquipo(equipo4.getNombre(), equipo4.getCantidad(), equipo4.getPrecio());
-        
-        // imprimimos los datos de cada equipo
-        System.out.println("equipo 1:\n"+"nombre: "+equipo1.getNombre() +"\ncantidad: "+ equipo1.getCantidad()+ "\nprecio: " +equipo1.getPrecio()+ "\n\n" +"equipo 2:\n"+"nombre: "+equipo2.getNombre()+ "\ncantidad: "+ equipo2.getCantidad()+ "\nprecio:" +equipo2.getPrecio() + "\n\n" +"equipo 3:\n"+"nombre: "+equipo3.getNombre()+ "\ncantidad: "+ equipo3.getCantidad()+ "\nprecio:" +equipo3.getPrecio() + "\n\n" +"equipo 4:\n"+"nombre: "+equipo4.getNombre()+ "\ncantidad: "+ equipo4.getCantidad()+ "\nprecio:" +equipo4.getPrecio() +"\n");
-        
+
         // Crear ArrayList para equipos sin descuento
         ArrayList<Equipo> pc1 = new ArrayList<Equipo>();
         pc1.add(equipo1);
         pc1.add(equipo2);
         pc1.add(equipo3);
         pc1.add(equipo4);
-        
+
         // Crear ArrayList para equipos con descuento
         ArrayList<Equipo> pc2 = new ArrayList<Equipo>();
         pc2.add(equipo1Desc);
         pc2.add(equipo2Desc);
         pc2.add(equipo3Desc);
         pc2.add(equipo4Desc);
-        
-        System.out.println("equipo1 con descuento"+equipo1Desc);
+
         // Bucle con el que aplicaremos el descuento
         for (int i = 0; i < pc2.size(); i++) {
             pc1.get(i).descuentoEquipo();

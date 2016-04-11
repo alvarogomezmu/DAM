@@ -3,19 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package junio;
+package Tarea4;
 
 /**
  *
  * @author Alvaro
  */
-public class Junio {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class xml {
     
 }
