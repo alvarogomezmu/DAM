@@ -23,7 +23,7 @@ public class Ejercicio01 {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
+
         // País de la Universidad
         Herramientas.xpath(doc, "/universidad/nombre");
     }

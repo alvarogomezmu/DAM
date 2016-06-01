@@ -1,5 +1,10 @@
 package Ejercicio2;
 
+/*
+Tenemos un objeto profesor (nombre, edad, titulación) que guardamos en dos estructuras map<DNI, profesor>, 
+queremos comparar los profesores guardados en el primer Map con el segundo Map. Intenta crear un método que nos compare las dos estructuras. 
+Nos debe informar de los valores repetidos en la estructura. Quiero ver los profesores iguales.
+*/
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
